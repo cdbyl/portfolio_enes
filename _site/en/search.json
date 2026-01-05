@@ -2,37 +2,9 @@
   {
     "objectID": "projects_es/analysis-01.html",
     "href": "projects_es/analysis-01.html",
-    "title": "`IVC",
+    "title": "IVC",
     "section": "",
     "text": "(Your text, maps, and code go here…)\n[Your text and maps go here…]"
-  },
-  {
-    "objectID": "projects_en/analysis-01.html",
-    "href": "projects_en/analysis-01.html",
-    "title": "Quality of Life Index",
-    "section": "",
-    "text": "(Your text, maps, and code go here…)\n[Your text and maps go here…]"
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "Select a category from the right to filter the projects."
-  },
-  {
-    "objectID": "projects.html#featured-work",
-    "href": "projects.html#featured-work",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "Select a category from the right to filter the projects."
-  },
-  {
-    "objectID": "projects-es.html",
-    "href": "projects-es.html",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "QGIS\n\nCartography\n\nSOTM Latam\n\n\n\nLorem ipsum\n\n\n\nNov 15, 2019\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -54,5 +26,40 @@
     "title": "Carolina Byl",
     "section": "",
     "text": "BS & MS in Environmental Engineering @ Universidad Nacional de San Martín (UNSAM)\nDiploma in Applied Geomatics @ Instituto de Altos Estudios Espaciales Mario Gulich (CONAE - UNC)"
+  },
+  {
+    "objectID": "projects-es.html",
+    "href": "projects-es.html",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "QGIS\n\nCartography\n\nSOTM Latam\n\n\n\nLorem ipsum\n\n\n\nNov 15, 2019\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "Select a category from the right to filter the projects."
+  },
+  {
+    "objectID": "projects.html#featured-work",
+    "href": "projects.html#featured-work",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "Select a category from the right to filter the projects."
+  },
+  {
+    "objectID": "projects_en/analysis-01.html",
+    "href": "projects_en/analysis-01.html",
+    "title": "Quality of Life Index",
+    "section": "",
+    "text": "(Your text, maps, and code go here…)\n[Your text and maps go here…]"
+  },
+  {
+    "objectID": "redirect.html",
+    "href": "redirect.html",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "Redirecting to English version…"
   }
 ]

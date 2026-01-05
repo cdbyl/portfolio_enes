@@ -16,5 +16,9 @@
   },
   "projects_es/analysis-01.qmd": {
     "analysis-01.html": "0df2762c"
+  },
+  "redirect.qmd": {
+    "index.html": "b2a88b4b",
+    "redirect.html": "c26d5a9c"
   }
 }

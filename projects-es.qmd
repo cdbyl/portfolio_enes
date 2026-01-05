@@ -23,4 +23,6 @@ listing:
 ::: {.content-visible when-profile="espanol"}
 ## Proyectos Destacados
 Seleccione una categoría del panel a la derecha para filtrar los proyectos. 
+
+EN CONSTRUCCIÓN :)
 :::

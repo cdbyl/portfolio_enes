@@ -1,6 +1,6 @@
 project:
   title: "GIS Portfolio"
-  output-dir: ./_site/en
+  output-dir: _site/en
 
 website:
   site-url: https://cdbyl.github.io/portfolio
@@ -15,16 +15,14 @@ website:
       - text: "Home"
         href: index.html
       - text: "Projects"
-        href: projects-en.html
+        href: projects.html
       #- text: "Blog"
       #  href: blog.html
       #- icon: rss
       #  href: blog.xml
-    # right:
-    #   - text: "English"
-    #     href: ./_site/en
-    #   - text: "Español"
-    #     href: ./_site/es
+    right:
+      - text: "Español"
+        href: ../es/
   page-footer:
     left: "Site created with Quarto"
 

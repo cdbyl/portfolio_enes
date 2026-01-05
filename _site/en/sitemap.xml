@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cdbyl.github.io/portfolio/projects_es/analysis-01.html</loc>
-    <lastmod>2026-01-05T03:29:39.780Z</lastmod>
+    <lastmod>2026-01-05T03:33:49.683Z</lastmod>
   </url>
   <url>
-    <loc>https://cdbyl.github.io/portfolio/projects_en/analysis-01.html</loc>
-    <lastmod>2026-01-05T03:31:43.823Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cdbyl.github.io/portfolio/projects.html</loc>
-    <lastmod>2026-01-05T03:27:14.658Z</lastmod>
+    <loc>https://cdbyl.github.io/portfolio/index.html</loc>
+    <lastmod>2026-01-05T01:29:48.147Z</lastmod>
   </url>
   <url>
     <loc>https://cdbyl.github.io/portfolio/projects-es.html</loc>
     <lastmod>2026-01-05T03:28:58.347Z</lastmod>
   </url>
   <url>
-    <loc>https://cdbyl.github.io/portfolio/index.html</loc>
-    <lastmod>2026-01-05T01:29:48.147Z</lastmod>
+    <loc>https://cdbyl.github.io/portfolio/projects.html</loc>
+    <lastmod>2026-01-05T03:27:14.658Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cdbyl.github.io/portfolio/projects_en/analysis-01.html</loc>
+    <lastmod>2026-01-05T03:31:43.823Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cdbyl.github.io/portfolio/redirect.html</loc>
+    <lastmod>2026-01-05T03:56:44.242Z</lastmod>
   </url>
 </urlset>

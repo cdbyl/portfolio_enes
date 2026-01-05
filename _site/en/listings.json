@@ -1,14 +1,14 @@
 [
   {
-    "listing": "/projects.html",
-    "items": [
-      "/projects_en/analysis-01.html"
-    ]
-  },
-  {
     "listing": "/projects-es.html",
     "items": [
       "/projects_es/analysis-01.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects_en/analysis-01.html"
     ]
   }
 ]

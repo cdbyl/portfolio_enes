@@ -1,6 +1,6 @@
 project:
   title: "Portfolio SIG"
-  output-dir: ./_site/es
+  output-dir: _site/es
 
 website:
   site-url: https://cdbyl.github.io/portfolio
@@ -20,11 +20,9 @@ website:
       #  href: blog.html
       #- icon: rss
       #  href: blog.xml
-    # right:
-    #   - text: "English"
-    #     href: ./_site/en
-    #   - text: "Español"
-    #     href: ./_site/es
+    right:
+      - text: "English"
+        href: ../en/
   page-footer:
     left: "Sitio creado con Quarto"
 
