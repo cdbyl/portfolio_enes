@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Lorem ipsum">
+<meta name="dcterms.date" content="2025-11-02">
+<meta name="description" content="Created for Day 2 (Lines) of the #30daymapchallenge, this project visualizes the relief with all of it’s ups-and-downs in Pampa Linda, Argentina.">
 
-<title>IVC – GIS Portfolio</title>
+<title>Contour lines for Pampa Linda, Río Negro, Argentina – GIS Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -44,9 +45,12 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6186cf65a05dad696bbdf15477d0b3a1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-3b998334e7585d5c980e154ee6a7d179.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-6186cf65a05dad696bbdf15477d0b3a1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7d73048fd0439d083df640c6ef166eb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fbf50fe87046acf771bd55642d3941d4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-7d73048fd0439d083df640c6ef166eb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,31 +65,35 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No se han encontrado resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="IVC – GIS Portfolio">
-<meta property="og:description" content="Lorem ipsum">
-<meta property="og:image" content="https://cdbyl.github.io/portfolio/projects_es/images/img1.jpeg">
+<meta property="og:title" content="Contour lines for Pampa Linda, Río Negro, Argentina – GIS Portfolio">
+<meta property="og:description" content="Created for Day 2 (Lines) of the #30daymapchallenge, this project visualizes the relief with all of it’s ups-and-downs in Pampa Linda, Argentina.">
+<meta property="og:image" content="https://cdbyl.github.io/portfolio/images/P03_cover.png">
 <meta property="og:site_name" content="GIS Portfolio">
 <meta property="og:locale" content="en_US">
-<meta name="twitter:title" content="IVC – GIS Portfolio">
-<meta name="twitter:description" content="Lorem ipsum">
-<meta name="twitter:image" content="https://cdbyl.github.io/portfolio/projects_es/images/img1.jpeg">
+<meta property="og:image:height" content="442">
+<meta property="og:image:width" content="517">
+<meta name="twitter:title" content="Contour lines for Pampa Linda, Río Negro, Argentina – GIS Portfolio">
+<meta name="twitter:description" content="Created for Day 2 (Lines) of the #30daymapchallenge, this project visualizes the relief with all of it’s ups-and-downs in Pampa Linda, Argentina.">
+<meta name="twitter:image" content="https://cdbyl.github.io/portfolio/images/P03_cover.png">
 <meta name="twitter:creator" content="@cdbyl">
+<meta name="twitter:image-height" content="442">
+<meta name="twitter:image-width" content="517">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -271,8 +279,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">GIS Portfolio</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Buscar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -286,15 +294,9 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../es"> 
-<span class="menu-text">Español</span></a>
-  </li>  
-</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -303,8 +305,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-overview" id="toc-project-overview" class="nav-link active" data-scroll-target="#project-overview">Project Overview</a></li>
+  <li><a href="#data-sources-and-tools" id="toc-data-sources-and-tools" class="nav-link" data-scroll-target="#data-sources-and-tools">Data Sources and Tools</a></li>
+  <li><a href="#the-completed-challenge-for-day-2" id="toc-the-completed-challenge-for-day-2" class="nav-link" data-scroll-target="#the-completed-challenge-for-day-2">The completed challenge for Day 2</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -312,17 +322,17 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">IVC</h1>
+<h1 class="title">Contour lines for Pampa Linda, Río Negro, Argentina</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">QGIS</div>
+    <div class="quarto-category">30 day map challenge</div>
     <div class="quarto-category">Cartography</div>
-    <div class="quarto-category">SOTM Latam</div>
+    <div class="quarto-category">QGIS</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Lorem ipsum
+    Created for Day 2 (Lines) of the <a href="https://30daymapchallenge.com/">#30daymapchallenge</a>, this project visualizes the relief with all of it’s ups-and-downs in Pampa Linda, Argentina.
   </div>
 </div>
 
@@ -331,9 +341,9 @@ ul.task-list li input[type="checkbox"] {
 
     
     <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">15 de noviembre de 2019</p>
+      <p class="date">November 2, 2025</p>
     </div>
   </div>
   
@@ -345,10 +355,41 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>(Your text, maps, and code go here…)</p>
-<p>[Your text and maps go here…]</p>
+<hr>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<div class="columns">
+<div class="column text-justify" style="width:35%;">
+<p><em>Pampa Linda</em> is the main valley and nearest settlement at the base of Cerro Tronador. The mountain was named <em>Tronador</em> — Spanish for “Thunderer” — because of the sound of falling ice heard as one approaches the peak. It is the highest and most prominent mountain in Nahuel Huapi National Park, standing at 3,554 meters above sea level.</p>
+</div><div class="column text-center" style="width:65%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/P03_tronador.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption><em>Tronador Mt. at Río Negro, Argentina</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="data-sources-and-tools" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources-and-tools">Data Sources and Tools</h2>
+<ul>
+<li>DEM SRTM with ~90m pixel resolution, obtained with <a href="https://plugins.qgis.org/plugins/OpenTopography-DEM-Downloader/">OpenTopography DEM Downloader Plugin</a></li>
+<li>Peaks, international boundary, settlements, water courses and bodies: <a href="https://geoportal.ign.gob.ar/">National Geography Institute of Argentina</a></li>
+</ul>
+<hr>
+<ul>
+<li>Made with <img src="../images/QGIS.png" class="img-fluid" style="vertical-align: middle;;width:1em"><a href="https://qgis.org/project/overview/">GIS</a> 3.22.4-Białowieża</li>
+</ul>
+</section>
+<section id="the-completed-challenge-for-day-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-completed-challenge-for-day-2">The completed challenge for Day 2</h2>
+<div class="text-center">
+<p><a href="../images/P03_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/P03_map.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -389,12 +430,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiado");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiado");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -778,6 +819,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

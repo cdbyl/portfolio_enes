@@ -1,0 +1,42 @@
+---
+title: "My tour around Buenos Aires City"
+description: "Created for Day 4 (My Data) of the [#30daymapchallenge](https://30daymapchallenge.com/), this map shows the route I tracked with my GPS on the *Vuelta en Bici*"
+date: "2025-11-04"
+lang: en
+categories: [30 day map challenge, Cartography, QGIS]
+image: ../images/P04_cover.png
+format:
+  html:
+    code-fold: true 
+---
+****
+## Project Overview
+
+:::: {.columns}
+
+::: {.column width="45%" .text-justify}
+The annual event "*Vuelta en Bici a la Ciudad de Buenos Aires*" consists of a mass tour of the city, departing counterclockwise from Parque Lezama. The ride is about 70 km long and takes between 10 to 12 hours to complete, with two fixed intermediate stops.
+
+I used public transport to get to the starting point and to return, and I wanted to show that on this map as well. The symbols were chosen with accessibility in mind, ensuring the visualization does not rely solely on color.
+:::
+
+::: {.column width="55%" .text-center}
+![_Drone picture of bikers touring <br> Buenos Aires City, August 2023_](../images/P04_vuelta.jpg){width=45%}
+:::
+
+::::
+## Data Sources and Tools
+
+* My GPS Data retrieved with Google Maps and recovered using [Timeline Viewer Map](https://timelineviewer.pages.dev/)
+* Basemap: [Argenmap by National Geography Institute of Argentina](https://www.ign.gob.ar/AreaServicios/Argenmap/Introduccion)
+
+****
+* Made with ![](../images/QGIS.png){width=1em style="vertical-align: middle;"}[GIS](https://qgis.org/project/overview/) 3.22.4-Białowieża
+
+## The completed challenge for Day 4
+
+::: {.text-center}
+
+![](../images/P04_map.png){width=100% class="lightbox"}
+:::
+

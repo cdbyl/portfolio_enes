@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2019-11-15">
-<meta name="description" content="Application of ACUMAR’s Quality of Life Index (ICV/QLI) to the neighbor Reconquista River Basin, based on the region’s strong geographic and socioeconomic similarities to the originally studied Matanza-Riachuelo basin.">
+<meta name="dcterms.date" content="2025-11-01">
+<meta name="description" content="Created for Day 1 (Points) of the #30daymapchallenge, this project visualizes the density of London plane trees in Buenos Aires City — trees (in)famous for their allergenic impact in spring.">
 
-<title>Quality of Life Index – GIS Portfolio</title>
+<title>London plane trees in Buenos Aires City – Portfolio SIG</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -45,9 +45,12 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cc66a47c23b0ffc2f8a09621be57c748.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-998fc9a565e78fa4e948a93e02c5a8d3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-cc66a47c23b0ffc2f8a09621be57c748.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7d73048fd0439d083df640c6ef166eb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fbf50fe87046acf771bd55642d3941d4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-7d73048fd0439d083df640c6ef166eb3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,19 +81,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Quality of Life Index – GIS Portfolio">
-<meta property="og:description" content="Application of ACUMAR’s Quality of Life Index (ICV/QLI) to the neighbor Reconquista River Basin, based on the region’s strong geographic and socioeconomic similarities to the originally studied Matanza-Riachuelo basin.">
-<meta property="og:image" content="https://cdbyl.github.io/portfolio/images/P01_cover.png">
-<meta property="og:site_name" content="GIS Portfolio">
-<meta property="og:locale" content="en_US">
-<meta property="og:image:height" content="1080">
-<meta property="og:image:width" content="1535">
-<meta name="twitter:title" content="Quality of Life Index – GIS Portfolio">
-<meta name="twitter:description" content="Application of ACUMAR’s Quality of Life Index (ICV/QLI) to the neighbor Reconquista River Basin, based on the region’s strong geographic and socioeconomic similarities to the originally studied Matanza-Riachuelo basin.">
-<meta name="twitter:image" content="https://cdbyl.github.io/portfolio/images/P01_cover.png">
+<meta property="og:title" content="London plane trees in Buenos Aires City – Portfolio SIG">
+<meta property="og:description" content="Created for Day 1 (Points) of the #30daymapchallenge, this project visualizes the density of London plane trees in Buenos Aires City — trees (in)famous for their allergenic impact in spring.">
+<meta property="og:image" content="https://cdbyl.github.io/portfolio/images/P02_cover.png">
+<meta property="og:site_name" content="Portfolio SIG">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image:height" content="411">
+<meta property="og:image:width" content="416">
+<meta name="twitter:title" content="London plane trees in Buenos Aires City – Portfolio SIG">
+<meta name="twitter:description" content="Created for Day 1 (Points) of the #30daymapchallenge, this project visualizes the density of London plane trees in Buenos Aires City — trees (in)famous for their allergenic impact in spring.">
+<meta name="twitter:image" content="https://cdbyl.github.io/portfolio/images/P02_cover.png">
 <meta name="twitter:creator" content="@cdbyl">
-<meta name="twitter:image-height" content="1080">
-<meta name="twitter:image-width" content="1535">
+<meta name="twitter:image-height" content="411">
+<meta name="twitter:image-width" content="416">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -273,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">GIS Portfolio</span>
+    <span class="navbar-title">Portfolio SIG</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -284,11 +287,17 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects.html"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="../projects-es.html"> 
+<span class="menu-text">Proyectos</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../en/"> 
+<span class="menu-text">English</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -307,16 +316,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#motivations" id="toc-motivations" class="nav-link active" data-scroll-target="#motivations">Motivations</a></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
-  <li><a href="#process" id="toc-process" class="nav-link" data-scroll-target="#process">Process</a></li>
-  <li><a href="#results-and-analysis" id="toc-results-and-analysis" class="nav-link" data-scroll-target="#results-and-analysis">Results and analysis</a>
-  <ul class="collapse">
-  <li><a href="#dimensional-analysis" id="toc-dimensional-analysis" class="nav-link" data-scroll-target="#dimensional-analysis">Dimensional Analysis</a></li>
-  <li><a href="#spatial-findings" id="toc-spatial-findings" class="nav-link" data-scroll-target="#spatial-findings">Spatial Findings</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#project-overview" id="toc-project-overview" class="nav-link active" data-scroll-target="#project-overview">Project Overview</a></li>
+  <li><a href="#data-sources-and-tools" id="toc-data-sources-and-tools" class="nav-link" data-scroll-target="#data-sources-and-tools">Data Sources and Tools</a></li>
+  <li><a href="#the-completed-challenge-for-day-1" id="toc-the-completed-challenge-for-day-1" class="nav-link" data-scroll-target="#the-completed-challenge-for-day-1">The completed challenge for Day 1</a></li>
+  <li><a href="#results-and-analysis" id="toc-results-and-analysis" class="nav-link" data-scroll-target="#results-and-analysis">Results and analysis</a></li>
   </ul>
 </nav>
     </div>
@@ -326,17 +329,17 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quality of Life Index</h1>
+<h1 class="title">London plane trees in Buenos Aires City</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">QGIS</div>
+    <div class="quarto-category">30 day map challenge</div>
     <div class="quarto-category">Cartography</div>
-    <div class="quarto-category">SOTM Latam</div>
+    <div class="quarto-category">QGIS</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Application of ACUMAR’s Quality of Life Index (ICV/QLI) to the neighbor Reconquista River Basin, based on the region’s strong geographic and socioeconomic similarities to the originally studied Matanza-Riachuelo basin.
+    Created for Day 1 (Points) of the <a href="https://30daymapchallenge.com/">#30daymapchallenge</a>, this project visualizes the density of London plane trees in Buenos Aires City — trees (in)famous for their allergenic impact in spring.
   </div>
 </div>
 
@@ -347,7 +350,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 15, 2019</p>
+      <p class="date">November 1, 2025</p>
     </div>
   </div>
   
@@ -360,72 +363,58 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
-<section id="motivations" class="level2">
-<h2 class="anchored" data-anchor-id="motivations">Motivations</h2>
-<p>As the final project for the Geographic Information Systems course in our Environmental Engineering degree, L. Sandri and I decided to analyze a region that is frequently studied across different subjects. Driven by the lack of detailed spatial data for the degraded Reconquista Basin, we focused on generating new insights for this specific area.</p>
-<p>By replicating ACUMAR’s methodology, this study aims to generate comparable results and utilize cartographic visualization to identify vulnerable areas, ultimately providing a strategic tool for institutions to optimize resource allocation and design targeted socio-environmental policies.</p>
-<p>Although we were unable to calculate the full index due to data limitations (specifically the environmental and education components), we successfully computed the <strong>housing</strong> and <strong>health</strong> metrics. This allowed us to perform a comparative analysis against the Matanza-Riachuelo index.</p>
-</section>
-<section id="data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
-<p>All of the data was taken from public open sources:</p>
-<ul>
-<li><a href="https://www.indec.gob.ar/">INDEC</a>: Housing characteristics and access to sanitary infrastructure was taking from the 2010 Census</li>
-<li><a href="https://catalogo.datos.gba.gob.ar/">Datos Abiertos de la Provincia de Buenos Aires</a>: Distribution of public health institutions</li>
-<li><a href="https://www.ign.gob.ar">Instituto Geográfico Nacional</a>: Provincial and department political boundaries, water courses</li>
-<li><a href="https://cim.fadu.uba.ar/productos/">Atlas de la Basura (FADU)</a>: Legal and illegal waste disposal sites (unavailable at the time of access)</li>
-</ul>
-</section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
-<p>The methodology followed the one proposed by ACUMAR [1] where:</p>
-<div class="text-center">
-<p>QLI (Quality of Life Index) = 0.25 * HI + 0.25 * PHI + 0.25 EdI + 0.25 * EnI</p>
-</div>
-<ul>
-<li>HI: housing index</li>
-<li>PHI: public health index</li>
-<li>EdI: education index</li>
-<li>EnI: environmental index</li>
-</ul>
-<p>Because of the information available at the time, we were able to calculate both HI and PHI sub-indeces. When comparing with ACUMAR’s data from Matanza-Riachuelo basin, we only compared to those two, and using the same scale for visualization as the one proposed by ACUMAR.</p>
-</section>
-<section id="process" class="level2">
-<h2 class="anchored" data-anchor-id="process">Process</h2>
-<ul>
-<li>All geospatial operations, and cartographic productions were done in QGIS 3.14. Main tools used included native QGIS library for operations such as cut, dissolve, buffer, etc, and the use of the calculator to operate across layers.</li>
-<li>The fundamental spatial unit used was the “radio censal” (census radius), which is the smallest unit of geography used by INDEC for census reporting. All datasets with a coarser resolution were transformed to match this base layer, ensuring the analysis utilized the highest resolution available.</li>
-<li>Although operations were performed for all census radii of all comprising departments of the Basin, for visualization purposes only those within the Basin were shown. This happens because a basin is defined by physical characteristics unlike political boundaries.</li>
-</ul>
-</section>
-<section id="results-and-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="results-and-analysis">Results and analysis</h2>
-<div class="text-center">
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p><a href="https://en.wikipedia.org/wiki/London_plane">London plane trees</a> release their seeds in spring. Since they are so abundant in Buenos Aires City, the season is noticeable by almost everyone due to the annoyance of frequent sneezing and seeds getting into one’s eyes.</p>
+<div class="text-center quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/P01_cover.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption><em>Quality of Life Index for Reconquista Basin compared with Matanza-Riachuelo Basin (only housing and health)</em></figcaption>
+<p><img src="../images/P02_plat_arb.jpeg" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption><em>Platanus x hispanica leaves and fruits</em></figcaption>
 </figure>
 </div>
 </div>
-<p>The methodology proposed by ACUMAR was successfully applied to the Reconquista River Basin to calculate Health and Housing indices, along with an adapted Quality of Life Index. The analysis focused exclusively on “urban” census radii, covering 27.91% of the basin’s surface area but representing <strong>96.21% of the total population</strong> (2,942,680 inhabitants).</p>
-<p>The study revealed that the vast majority of the population lives in vulnerable conditions: * Very High: 0.16% * High: 12.50% * Medium: 10.43% * Low: 37.04% * Very Low: 39.83%</p>
-<section id="dimensional-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="dimensional-analysis">Dimensional Analysis</h3>
-<p>The Health Index revealed widespread needs (driven by a lack of basic sanitary services), whereas the Housing Index showed generally better conditions with specific pockets requiring state intervention.</p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/P02_plat.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption><em>Fruit and seeds</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="spatial-findings" class="level3">
-<h3 class="anchored" data-anchor-id="spatial-findings">Spatial Findings</h3>
+<section id="data-sources-and-tools" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources-and-tools">Data Sources and Tools</h2>
 <ul>
-<li>High QLI: Areas closest to CABA and high-density urban zones (often surrounding railway stations) showed the highest quality of life values.</li>
-<li>Low QLI: Conversely, areas in close proximity to water bodies tended to have the lowest values.</li>
-<li>Basin Distribution: No clear distinction was observed between the middle and lower basins in terms of QLI, though the middle basin presented more rural and mixed-use zones.</li>
+<li>2017/2018 <a href="https://buenosaires.gob.ar/gobierno/gestion-comunal/arbopedia/censo-y-mapa-de-arbolado">Urban Tree Census</a>, available on <a href="https://idecaba.buenosaires.gob.ar/">IDECABA</a></li>
+<li>Trees in streets and parks: <a href="https://idecaba.buenosaires.gob.ar/">IDECABA</a></li>
+<li>Parks and other green spaces: <a href="https://idecaba.buenosaires.gob.ar/">IDECABA</a></li>
+<li>Basemap: <a href="https://carto.com/blog/new-voyager-basemap">CARTO Voyager</a></li>
+</ul>
+<hr>
+<ul>
+<li>Made with <img src="../images/QGIS.png" class="img-fluid" style="vertical-align: middle;;width:1em"><a href="https://qgis.org/project/overview/">GIS</a> 3.22.4-Białowieża</li>
 </ul>
 </section>
+<section id="the-completed-challenge-for-day-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-completed-challenge-for-day-1">The completed challenge for Day 1</h2>
+<div class="text-center">
+<p><a href="../images/P02_map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/P02_map.png" class="img-fluid" style="width:100.0%"></a></p>
+</div>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>[1] ACUMAR, (2017a). <u>Anexo III: Fichas metodológicas.</u> <i>Índice de Calidad de Vida (ICV).</i> Available at: <a href="http://www.acumar.gob.ar/indicadores/indice-calidad-vida-icv/">http://www.acumar.gob.ar/indicadores/indice-calidad-vida-icv/</a>, on 19/08/2019.</p>
+<section id="results-and-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-analysis">Results and analysis</h2>
+<p>The <em>comunas</em> with the most plane trees are:</p>
+<ol type="1">
+<li><u>Comuna 15</u>: Agronomía, Paternal, Parque Chas, Chacarita, Villa Crespo, Villa Ortúzar</li>
+<li><u>Comuna 11</u>: Villa del Parque, Villa Devoto, Villa Gral. Mitre, Villa Santa Rita</li>
+<li><u>Comuna 14</u>: Palermo</li>
+</ol>
+<p><a href="../images/P02_map_comunas.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images/P02_map_comunas.png" class="img-fluid" style="width:100.0%"></a></p>
 
 
 </section>
@@ -848,7 +837,7 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Site created with Quarto</p>
+<p>Sitio creado con Quarto</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -858,6 +847,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

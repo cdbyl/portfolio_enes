@@ -25,7 +25,7 @@ All of the data was taken from public open sources:
 * [Instituto Geográfico Nacional](https://www.ign.gob.ar): Provincial and department political boundaries, water courses
 * [Atlas de la Basura (FADU)](https://cim.fadu.uba.ar/productos/): Legal and illegal waste disposal sites (unavailable at the time of access)
 
-* All geospatial operations, and cartographic productions were done in **QGIS 3.14**. Main tools used included native QGIS library for operations such as cut, dissolve, buffer, etc, and the use of the calculator to operate across layers. 
+* All geospatial operations, and cartographic productions were done in ![](../images/QGIS.png){width=1em style="vertical-align: middle;"}[**GIS**](https://qgis.org/project/overview/) **3.14**. Main tools used included native QGIS library for operations such as cut, dissolve, buffer, etc, and the use of the calculator to operate across layers. 
 
 ## Workflow
 ### Calculations

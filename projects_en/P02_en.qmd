@@ -3,7 +3,7 @@ title: "London plane trees in Buenos Aires City"
 description: "Created for Day 1 (Points) of the [#30daymapchallenge](https://30daymapchallenge.com/), this project visualizes the density of London plane trees in Buenos Aires City — trees (in)famous for their allergenic impact in spring."
 date: "2025-11-01"
 lang: en
-categories: [QGIS, Cartography, 30 day map challenge]
+categories: [30 day map challenge, Cartography, QGIS]
 image: ../images/P02_cover.png
 format:
   html:
@@ -21,12 +21,15 @@ format:
 
 :::
 
-## Data Sources
+## Data Sources and Tools
 
 * 2017/2018 [Urban Tree Census](https://buenosaires.gob.ar/gobierno/gestion-comunal/arbopedia/censo-y-mapa-de-arbolado), available on [IDECABA](https://idecaba.buenosaires.gob.ar/)
 * Trees in streets and parks: [IDECABA](https://idecaba.buenosaires.gob.ar/)
 * Parks and other green spaces: [IDECABA](https://idecaba.buenosaires.gob.ar/)
 * Basemap: [CARTO Voyager](https://carto.com/blog/new-voyager-basemap)
+
+****
+* Made with ![](../images/QGIS.png){width=1em style="vertical-align: middle;"}[GIS](https://qgis.org/project/overview/) 3.22.4-Białowieża
 
 ## The completed challenge for Day 1
 

@@ -38,3 +38,39 @@ div.quarto-listing-category {
   justify-content: center; /* Centers content vertically */
   min-height: 60vh;        /* Ensures there is enough height to center within */
 }
+
+/* --- CUSTOM MERMAID STYLES --- */
+
+/* 1. GREEN LINES & ARROWS */
+/* Changes the line connecting the boxes */
+.mermaid .edgePath .path {
+    stroke: #40A355 !important;
+    stroke-width: 2px !important;
+    opacity: 1 !important;
+}
+/* Changes the triangle arrowheads */
+.mermaid marker path {
+    fill: #40A355 !important;
+    stroke: #40A355 !important;
+}
+
+/* 2. GREEN BOX BORDERS */
+/* Changes the border of the rectangles */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node polygon {
+    stroke: #40A355 !important;
+    stroke-width: 2px !important;
+    /* We leave 'fill' alone so it stays Dark in Dark Mode / Light in Light Mode */
+}
+
+/* 3. PURPLE TEXT ON ARROWS */
+/* Changes the text "Crop", "Operations", etc. */
+.mermaid .edgeLabel, 
+.mermaid .edgeLabel span,
+.mermaid .edgeLabel div {
+    color: #9E54BD !important;
+    /* Uses the site background color for the label background */
+    /* This ensures it looks clean on both Dark and Light mode */
+    background-color: var(--bs-body-bg) !important; 
+}

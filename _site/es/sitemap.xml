@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cdbyl.github.io/portfolio/projects_es/analysis-01.html</loc>
-    <lastmod>2026-01-05T03:33:49.683Z</lastmod>
-  </url>
-  <url>
     <loc>https://cdbyl.github.io/portfolio/index.html</loc>
     <lastmod>2026-01-05T01:29:48.147Z</lastmod>
   </url>
   <url>
-    <loc>https://cdbyl.github.io/portfolio/projects-es.html</loc>
-    <lastmod>2026-01-05T03:28:58.347Z</lastmod>
+    <loc>https://cdbyl.github.io/portfolio/projects_en/P03_en.html</loc>
+    <lastmod>2026-01-09T01:45:06.329Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cdbyl.github.io/portfolio/projects_en/P01_en.html</loc>
+    <lastmod>2026-01-09T01:45:06.165Z</lastmod>
   </url>
   <url>
     <loc>https://cdbyl.github.io/portfolio/projects.html</loc>
     <lastmod>2026-01-05T03:27:14.658Z</lastmod>
   </url>
   <url>
-    <loc>https://cdbyl.github.io/portfolio/projects_en/analysis-01.html</loc>
-    <lastmod>2026-01-05T03:31:43.823Z</lastmod>
+    <loc>https://cdbyl.github.io/portfolio/projects-es.html</loc>
+    <lastmod>2026-01-05T04:24:01.569Z</lastmod>
   </url>
   <url>
-    <loc>https://cdbyl.github.io/portfolio/redirect.html</loc>
-    <lastmod>2026-01-05T03:56:44.242Z</lastmod>
+    <loc>https://cdbyl.github.io/portfolio/projects_en/P02_en.html</loc>
+    <lastmod>2026-01-09T01:45:06.246Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cdbyl.github.io/portfolio/projects_en/P04_en.html</loc>
+    <lastmod>2026-01-09T01:54:14.145Z</lastmod>
   </url>
 </urlset>

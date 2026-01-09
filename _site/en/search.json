@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "projects_es/analysis-01.html",
-    "href": "projects_es/analysis-01.html",
-    "title": "IVC",
-    "section": "",
-    "text": "(Your text, maps, and code go here…)\n[Your text and maps go here…]"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Carolina Byl",
@@ -28,130 +21,25 @@
     "text": "BS & MS in Environmental Engineering @ Universidad Nacional de San Martín (UNSAM)\nDiploma in Applied Geomatics @ Instituto de Altos Estudios Espaciales Mario Gulich (CONAE - UNC)"
   },
   {
-    "objectID": "projects-es.html",
-    "href": "projects-es.html",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "No matching items"
+    "objectID": "projects_en/P03_en.html#project-overview",
+    "href": "projects_en/P03_en.html#project-overview",
+    "title": "Contour lines for Pampa Linda, Río Negro, Argentina",
+    "section": "Project Overview",
+    "text": "Project Overview\n\n\nPampa Linda is the main valley and nearest settlement at the base of Cerro Tronador. The mountain was named Tronador — Spanish for “Thunderer” — because of the sound of falling ice heard as one approaches the peak. It is the highest and most prominent mountain in Nahuel Huapi National Park, standing at 3,554 meters above sea level.\n\n\n\n\nTronador Mt. at Río Negro, Argentina"
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "Select a category from the right to filter the projects."
+    "objectID": "projects_en/P03_en.html#data-sources-and-tools",
+    "href": "projects_en/P03_en.html#data-sources-and-tools",
+    "title": "Contour lines for Pampa Linda, Río Negro, Argentina",
+    "section": "Data Sources and Tools",
+    "text": "Data Sources and Tools\n\nDEM SRTM with ~90m pixel resolution, obtained with OpenTopography DEM Downloader Plugin\nPeaks, international boundary, settlements, water courses and bodies: National Geography Institute of Argentina\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
-    "objectID": "projects.html#featured-work",
-    "href": "projects.html#featured-work",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "Select a category from the right to filter the projects."
-  },
-  {
-    "objectID": "projects_en/analysis-01.html",
-    "href": "projects_en/analysis-01.html",
-    "title": "Quality of Life Index",
-    "section": "",
-    "text": "As the final project for the Geographic Information Systems course in our Environmental Engineering degree, L. Sandri and I decided to analyze a region that is frequently studied across different subjects. Driven by the lack of detailed spatial data for the degraded Reconquista Basin, we focused on generating new insights for this specific area.\nBy replicating ACUMAR’s methodology, this study aims to generate comparable results and utilize cartographic visualization to identify vulnerable areas, ultimately providing a strategic tool for institutions to optimize resource allocation and design targeted socio-environmental policies.\nAlthough we were unable to calculate the full index due to data limitations (specifically the environmental and education components), we successfully computed the housing and health metrics. This allowed us to perform a comparative analysis against the Matanza-Riachuelo index."
-  },
-  {
-    "objectID": "redirect.html",
-    "href": "redirect.html",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "Redirecting to English version…"
-  },
-  {
-    "objectID": "projects_en/analysis-01.html#methodology",
-    "href": "projects_en/analysis-01.html#methodology",
-    "title": "Quality of Life Index",
-    "section": "Methodology",
-    "text": "Methodology\nThe methodology followed the one proposed by ACUMAR [1] where:\n\nQLI (Quality of Life Index) = 0.25 * HI + 0.25 * PHI + 0.25 EdI + 0.25 * EnI\n\n\nHI: housing index\nPHI: public health index\nEdI: education index\nEnI: environmental index\n\nBecause of the information available at the time, we were able to calculate both HI and PHI sub-indeces. When comparing with ACUMAR’s data from Matanza-Riachuelo basin, we only compared to those two, and using the same scale for visualization as the one proposed by ACUMAR."
-  },
-  {
-    "objectID": "projects_en/analysis-01.html#data-sources",
-    "href": "projects_en/analysis-01.html#data-sources",
-    "title": "Quality of Life Index",
-    "section": "Data Sources",
-    "text": "Data Sources\nAll of the data was taken from public open sources:\n\nINDEC: Housing characteristics and access to sanitary infrastructure was taking from the 2010 Census\nDatos Abiertos de la Provincia de Buenos Aires: Distribution of public health institutions\nInstituto Geográfico Nacional: Provincial and department political boundaries, water courses\nAtlas de la Basura (FADU): Legal and illegal waste disposal sites (unavailable at the time of access)"
-  },
-  {
-    "objectID": "projects_en/analysis-01.html#process",
-    "href": "projects_en/analysis-01.html#process",
-    "title": "Quality of Life Index",
-    "section": "Process",
-    "text": "Process\n\nAll geospatial operations, and cartographic productions were done in QGIS 3.14. Main tools used included native QGIS library for operations such as cut, dissolve, buffer, etc, and the use of the calculator to operate across layers.\nThe fundamental spatial unit used was the “radio censal” (census radius), which is the smallest unit of geography used by INDEC for census reporting. All datasets with a coarser resolution were transformed to match this base layer, ensuring the analysis utilized the highest resolution available.\nAlthough operations were performed for all census radii of all comprising departments of the Basin, for visualization purposes only those within the Basin were shown. This happens because a basin is defined by physical characteristics unlike political boundaries."
-  },
-  {
-    "objectID": "projects_en/analysis-01.html#conclusion",
-    "href": "projects_en/analysis-01.html#conclusion",
-    "title": "Quality of Life Index",
-    "section": "Conclusion",
-    "text": "Conclusion\n\n\n\n\nQuality of Life Index for Reconquista Basin compared with Matanza-Riachuelo Basin (only housing and health)\n\n\n\nThe methodology proposed by ACUMAR was successfully applied to the Reconquista River Basin to calculate Health and Housing indices, along with an adapted Quality of Life Index. The analysis focused exclusively on “urban” census radii, covering 27.91% of the basin’s surface area but representing 96.21% of the total population (2,942,680 inhabitants).\nThe study revealed that the vast majority of the population lives in vulnerable conditions: * Very High: 0.16% * High: 12.50% * Medium: 10.43% * Low: 37.04% * Very Low: 39.83%\nThe Health Index revealed widespread needs (driven by a lack of basic sanitary services), whereas the Housing Index showed generally better conditions with specific pockets requiring state intervention.\n\nSpatial Findings\n\nHigh QLI: Areas closest to CABA and high-density urban zones (often surrounding railway stations) showed the highest quality of life values.\nLow QLI: Conversely, areas in close proximity to water bodies tended to have the lowest values.\nBasin Distribution: No clear distinction was observed between the middle and lower basins in terms of QLI, though the middle basin presented more rural and mixed-use zones.\n\n\n\nFuture Work\nThe project proposes the development of an online interactive map to provide open access to this data and facilitate future updates."
-  },
-  {
-    "objectID": "projects_en/analysis-01.html#references",
-    "href": "projects_en/analysis-01.html#references",
-    "title": "Quality of Life Index",
-    "section": "References",
-    "text": "References\n[1] ACUMAR, (2017a). Anexo III: Fichas metodológicas. Índice de Calidad de Vida (ICV). Available at: http://www.acumar.gob.ar/indicadores/indice-calidad-vida-icv/, on 19/08/2019."
-  },
-  {
-    "objectID": "projects_en/analysis-01.html#results-and-analysis",
-    "href": "projects_en/analysis-01.html#results-and-analysis",
-    "title": "Quality of Life Index",
-    "section": "Results and analysis",
-    "text": "Results and analysis\n\n\n\n\nQuality of Life Index for Reconquista Basin compared with Matanza-Riachuelo Basin (only housing and health)\n\n\n\nThe methodology proposed by ACUMAR was successfully applied to the Reconquista River Basin to calculate Health and Housing indices, along with an adapted Quality of Life Index. The analysis focused exclusively on “urban” census radii, covering 27.91% of the basin’s surface area but representing 96.21% of the total population (2,942,680 inhabitants).\nThe study revealed that the vast majority of the population lives in vulnerable conditions: * Very High: 0.16% * High: 12.50% * Medium: 10.43% * Low: 37.04% * Very Low: 39.83%\n\nDimensional Analysis\nThe Health Index revealed widespread needs (driven by a lack of basic sanitary services), whereas the Housing Index showed generally better conditions with specific pockets requiring state intervention.\n\n\nSpatial Findings\n\nHigh QLI: Areas closest to CABA and high-density urban zones (often surrounding railway stations) showed the highest quality of life values.\nLow QLI: Conversely, areas in close proximity to water bodies tended to have the lowest values.\nBasin Distribution: No clear distinction was observed between the middle and lower basins in terms of QLI, though the middle basin presented more rural and mixed-use zones."
-  },
-  {
-    "objectID": "projects_en/analysis-01.html#motivations",
-    "href": "projects_en/analysis-01.html#motivations",
-    "title": "Quality of Life Index",
-    "section": "Motivations",
-    "text": "Motivations\nAs the final project for the Geographic Information Systems course in our Environmental Engineering degree, L. Sandri and I decided to analyze a region that is frequently studied across different subjects. Driven by the lack of detailed spatial data for the degraded Reconquista Basin, we focused on generating new insights for this specific area.\nBy replicating ACUMAR’s methodology, this study aims to generate comparable results and utilize cartographic visualization to identify vulnerable areas, ultimately providing a strategic tool for institutions to optimize resource allocation and design targeted socio-environmental policies.\nAlthough we were unable to calculate the full index due to data limitations (specifically the environmental and education components), we successfully computed the housing and health metrics. This allowed us to perform a comparative analysis against the Matanza-Riachuelo index."
-  },
-  {
-    "objectID": "projects_en/P01_en.html#motivations",
-    "href": "projects_en/P01_en.html#motivations",
-    "title": "Quality of Life Index",
-    "section": "Motivations",
-    "text": "Motivations\nAs the final project for the Geographic Information Systems course in our Environmental Engineering degree, L. Sandri and I decided to analyze a region that is frequently studied across different subjects. Driven by the lack of detailed spatial data for the degraded Reconquista Basin, we focused on generating new insights for this specific area.\nBy replicating ACUMAR’s methodology, this study aims to generate comparable results and utilize cartographic visualization to identify vulnerable areas, ultimately providing a strategic tool for institutions to optimize resource allocation and design targeted socio-environmental policies.\nAlthough we were unable to calculate the full index due to data limitations (specifically the environmental and education components), we successfully computed the housing and health metrics. This allowed us to perform a comparative analysis against the Matanza-Riachuelo index."
-  },
-  {
-    "objectID": "projects_en/P01_en.html#data-sources",
-    "href": "projects_en/P01_en.html#data-sources",
-    "title": "Quality of Life Index",
-    "section": "Data Sources",
-    "text": "Data Sources\nAll of the data was taken from public open sources:\n\nINDEC: Housing characteristics and access to sanitary infrastructure was taking from the 2010 Census\nDatos Abiertos de la Provincia de Buenos Aires: Distribution of public health institutions\nInstituto Geográfico Nacional: Provincial and department political boundaries, water courses\nAtlas de la Basura (FADU): Legal and illegal waste disposal sites (unavailable at the time of access)"
-  },
-  {
-    "objectID": "projects_en/P01_en.html#methodology",
-    "href": "projects_en/P01_en.html#methodology",
-    "title": "Quality of Life Index",
-    "section": "Methodology",
-    "text": "Methodology\nThe methodology followed the one proposed by ACUMAR [1] where:\n\nQLI (Quality of Life Index) = 0.25 * HI + 0.25 * PHI + 0.25 EdI + 0.25 * EnI\n\n\nHI: housing index\nPHI: public health index\nEdI: education index\nEnI: environmental index\n\nBecause of the information available at the time, we were able to calculate both HI and PHI sub-indeces. When comparing with ACUMAR’s data from Matanza-Riachuelo basin, we only compared to those two, and using the same scale for visualization as the one proposed by ACUMAR."
-  },
-  {
-    "objectID": "projects_en/P01_en.html#process",
-    "href": "projects_en/P01_en.html#process",
-    "title": "Quality of Life Index",
-    "section": "Process",
-    "text": "Process\n\nAll geospatial operations, and cartographic productions were done in QGIS 3.14. Main tools used included native QGIS library for operations such as cut, dissolve, buffer, etc, and the use of the calculator to operate across layers.\nThe fundamental spatial unit used was the “radio censal” (census radius), which is the smallest unit of geography used by INDEC for census reporting. All datasets with a coarser resolution were transformed to match this base layer, ensuring the analysis utilized the highest resolution available.\nAlthough operations were performed for all census radii of all comprising departments of the Basin, for visualization purposes only those within the Basin were shown. This happens because a basin is defined by physical characteristics unlike political boundaries."
-  },
-  {
-    "objectID": "projects_en/P01_en.html#results-and-analysis",
-    "href": "projects_en/P01_en.html#results-and-analysis",
-    "title": "Quality of Life Index",
-    "section": "Results and analysis",
-    "text": "Results and analysis\n\n\n\n\nQuality of Life Index for Reconquista Basin compared with Matanza-Riachuelo Basin (only housing and health)\n\n\n\nThe methodology proposed by ACUMAR was successfully applied to the Reconquista River Basin to calculate Health and Housing indices, along with an adapted Quality of Life Index. The analysis focused exclusively on “urban” census radii, covering 27.91% of the basin’s surface area but representing 96.21% of the total population (2,942,680 inhabitants).\nThe study revealed that the vast majority of the population lives in vulnerable conditions: * Very High: 0.16% * High: 12.50% * Medium: 10.43% * Low: 37.04% * Very Low: 39.83%\n\nDimensional Analysis\nThe Health Index revealed widespread needs (driven by a lack of basic sanitary services), whereas the Housing Index showed generally better conditions with specific pockets requiring state intervention.\n\n\nSpatial Findings\n\nHigh QLI: Areas closest to CABA and high-density urban zones (often surrounding railway stations) showed the highest quality of life values.\nLow QLI: Conversely, areas in close proximity to water bodies tended to have the lowest values.\nBasin Distribution: No clear distinction was observed between the middle and lower basins in terms of QLI, though the middle basin presented more rural and mixed-use zones."
-  },
-  {
-    "objectID": "projects_en/P01_en.html#references",
-    "href": "projects_en/P01_en.html#references",
-    "title": "Quality of Life Index",
-    "section": "References",
-    "text": "References\n[1] ACUMAR, (2017a). Anexo III: Fichas metodológicas. Índice de Calidad de Vida (ICV). Available at: http://www.acumar.gob.ar/indicadores/indice-calidad-vida-icv/, on 19/08/2019."
+    "objectID": "projects_en/P03_en.html#the-completed-challenge-for-day-2",
+    "href": "projects_en/P03_en.html#the-completed-challenge-for-day-2",
+    "title": "Contour lines for Pampa Linda, Río Negro, Argentina",
+    "section": "The completed challenge for Day 2",
+    "text": "The completed challenge for Day 2"
   },
   {
     "objectID": "projects_en/P01_en.html#project-overview",
@@ -165,7 +53,7 @@
     "href": "projects_en/P01_en.html#data-tools",
     "title": "Quality of Life Index",
     "section": "Data & Tools",
-    "text": "Data & Tools\nAll of the data was taken from public open sources:\n\nINDEC: Housing characteristics and access to sanitary infrastructure was taking from the 2010 Census\nDatos Abiertos de la Provincia de Buenos Aires: Distribution of public health institutions\nInstituto Geográfico Nacional: Provincial and department political boundaries, water courses\nAtlas de la Basura (FADU): Legal and illegal waste disposal sites (unavailable at the time of access)\nAll geospatial operations, and cartographic productions were done in QGIS 3.14. Main tools used included native QGIS library for operations such as cut, dissolve, buffer, etc, and the use of the calculator to operate across layers."
+    "text": "Data & Tools\nAll of the data was taken from public open sources:\n\nINDEC: Housing characteristics and access to sanitary infrastructure was taking from the 2010 Census\nDatos Abiertos de la Provincia de Buenos Aires: Distribution of public health institutions\nInstituto Geográfico Nacional: Provincial and department political boundaries, water courses\nAtlas de la Basura (FADU): Legal and illegal waste disposal sites (unavailable at the time of access)\nAll geospatial operations, and cartographic productions were done in GIS 3.14. Main tools used included native QGIS library for operations such as cut, dissolve, buffer, etc, and the use of the calculator to operate across layers."
   },
   {
     "objectID": "projects_en/P01_en.html#workflow",
@@ -182,6 +70,34 @@
     "text": "Key Findings & Analysis\n\n\n\n\nQuality of Life Index for Reconquista Basin compared with Matanza-Riachuelo Basin (only housing and health)\n\n\n\nThe methodology proposed by ACUMAR was successfully applied to the Reconquista River Basin to calculate Health and Housing indices, along with an adapted Quality of Life Index. The analysis focused exclusively on “urban” census radii, covering 27.91% of the basin’s surface area but representing 96.21% of the total population (2,942,680 inhabitants).\nThe study revealed that the vast majority of the population lives in vulnerable conditions: * Very High: 0.16% * High: 12.50% * Medium: 10.43% * Low: 37.04% * Very Low: 39.83%\n\nDimensional Analysis\nThe Health Index revealed widespread needs (driven by a lack of basic sanitary services), whereas the Housing Index showed generally better conditions with specific pockets requiring state intervention.\n\n\nSpatial Findings\n\nHigh QLI: Areas closest to CABA and high-density urban zones (often surrounding railway stations) showed the highest quality of life values.\nLow QLI: Conversely, areas in close proximity to water bodies tended to have the lowest values.\nBasin Distribution: No clear distinction was observed between the middle and lower basins in terms of QLI, though the middle basin presented more rural and mixed-use zones."
   },
   {
+    "objectID": "projects_en/P01_en.html#references",
+    "href": "projects_en/P01_en.html#references",
+    "title": "Quality of Life Index",
+    "section": "References",
+    "text": "References\n[1] ACUMAR, (2017a). Anexo III: Fichas metodológicas. Índice de Calidad de Vida (ICV). Available at: http://www.acumar.gob.ar/indicadores/indice-calidad-vida-icv/, on 19/08/2019."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "Select a category from the right to filter the projects."
+  },
+  {
+    "objectID": "projects.html#featured-work",
+    "href": "projects.html#featured-work",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "Select a category from the right to filter the projects."
+  },
+  {
+    "objectID": "projects-es.html",
+    "href": "projects-es.html",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
     "objectID": "projects_en/P02_en.html#project-overview",
     "href": "projects_en/P02_en.html#project-overview",
     "title": "London plane trees in Buenos Aires City",
@@ -189,25 +105,18 @@
     "text": "Project Overview\nLondon plane trees release their seeds in spring. Since they are so abundant in Buenos Aires City, the season is noticeable by almost everyone due to the annoyance of frequent sneezing and seeds getting into one’s eyes.\n\n\n\n\n\n\nPlatanus x hispanica leaves and fruits\n\n\n\n\n\n\n\nFruit and seeds"
   },
   {
-    "objectID": "projects_en/P02_en.html#data-sources",
-    "href": "projects_en/P02_en.html#data-sources",
+    "objectID": "projects_en/P02_en.html#data-sources-and-tools",
+    "href": "projects_en/P02_en.html#data-sources-and-tools",
     "title": "London plane trees in Buenos Aires City",
-    "section": "Data Sources",
-    "text": "Data Sources\n\n2017/2018 Urban Tree Census, available on IDECABA\nTrees in streets and parks: IDECABA\nParks and other green spaces: IDECABA\nBasemap: CARTO Voyager"
+    "section": "Data Sources and Tools",
+    "text": "Data Sources and Tools\n\n2017/2018 Urban Tree Census, available on IDECABA\nTrees in streets and parks: IDECABA\nParks and other green spaces: IDECABA\nBasemap: CARTO Voyager\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
-    "objectID": "projects_en/P02_en.html#methodology",
-    "href": "projects_en/P02_en.html#methodology",
+    "objectID": "projects_en/P02_en.html#the-completed-challenge-for-day-1",
+    "href": "projects_en/P02_en.html#the-completed-challenge-for-day-1",
     "title": "London plane trees in Buenos Aires City",
-    "section": "Methodology",
-    "text": "Methodology"
-  },
-  {
-    "objectID": "projects_en/P02_en.html#process",
-    "href": "projects_en/P02_en.html#process",
-    "title": "London plane trees in Buenos Aires City",
-    "section": "Process",
-    "text": "Process"
+    "section": "The completed challenge for Day 1",
+    "text": "The completed challenge for Day 1"
   },
   {
     "objectID": "projects_en/P02_en.html#results-and-analysis",
@@ -217,17 +126,24 @@
     "text": "Results and analysis\nThe comunas with the most plane trees are:\n\nComuna 15: Agronomía, Paternal, Parque Chas, Chacarita, Villa Crespo, Villa Ortúzar\nComuna 11: Villa del Parque, Villa Devoto, Villa Gral. Mitre, Villa Santa Rita\nComuna 14: Palermo"
   },
   {
-    "objectID": "projects_en/P02_en.html#references",
-    "href": "projects_en/P02_en.html#references",
-    "title": "London plane trees in Buenos Aires City",
-    "section": "References",
-    "text": "References"
+    "objectID": "projects_en/P04_en.html#project-overview",
+    "href": "projects_en/P04_en.html#project-overview",
+    "title": "My tour around Buenos Aires City",
+    "section": "Project Overview",
+    "text": "Project Overview\n\n\nThe annual event “Vuelta en Bici a la Ciudad de Buenos Aires” consists of a mass tour of the city, departing counterclockwise from Parque Lezama. The ride is about 70 km long and takes between 10 to 12 hours to complete, with two fixed intermediate stops.\nI used public transport to get to the starting point and to return, and I wanted to show that on this map as well. The symbols were chosen with accessibility in mind, ensuring the visualization does not rely solely on color.\n\n\n\n\nDrone picture of bikers touring  Buenos Aires City, August 2023"
   },
   {
-    "objectID": "projects_en/P02_en.html#the-completed-challenge-for-day-1",
-    "href": "projects_en/P02_en.html#the-completed-challenge-for-day-1",
-    "title": "London plane trees in Buenos Aires City",
-    "section": "The completed challenge for Day 1",
-    "text": "The completed challenge for Day 1"
+    "objectID": "projects_en/P04_en.html#data-sources-and-tools",
+    "href": "projects_en/P04_en.html#data-sources-and-tools",
+    "title": "My tour around Buenos Aires City",
+    "section": "Data Sources and Tools",
+    "text": "Data Sources and Tools\n\nMy GPS Data retrieved with Google Maps and recovered using Timeline Viewer Map\nBasemap: Argenmap by National Geography Institute of Argentina\n\n\n\nMade with GIS 3.22.4-Białowieża"
+  },
+  {
+    "objectID": "projects_en/P04_en.html#the-completed-challenge-for-day-4",
+    "href": "projects_en/P04_en.html#the-completed-challenge-for-day-4",
+    "title": "My tour around Buenos Aires City",
+    "section": "The completed challenge for Day 4",
+    "text": "The completed challenge for Day 4"
   }
 ]
