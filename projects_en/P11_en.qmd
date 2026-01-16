@@ -56,8 +56,8 @@ if (!is.null(puntos_ruteo)) puntos_ruteo <- st_cast(puntos_ruteo, "POINT")
 my_colors <- c(
   "Bike lane"            = "#1b9e77",
   "One-way bike lane"    = "#7570b3",
-  "Suggested bike lanes" = "#d95f02",
-  "Suggested routing"    = "tomato", 
+  "Suggested bike lanes" = "red",
+  "Suggested routing"    = "#d95f02", 
   "Current routing"      = "black"
 )
 
@@ -67,30 +67,6 @@ if (!is.null(merged_lines)) {
   lines_split <- list()
 }
 
-map <- leaflet() %>%
-  setView(lng = -58.44, lat = -34.61, zoom = 12) %>%
-  addTiles(
-    urlTemplate = "[https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/](https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/){z}/{x}/{-y}.png",
-    attribution = "Argenmap - IGN Argentina",
-    options = tileOptions(tms = TRUE)
-  ) %>%
-  addProviderTiles(providers$CartoDB.Positron)
-
-# 6. ADD LINES
-for (cat_name in names(lines_split)) {
-  col <- ifelse(cat_name %in% names(my_colors), my_colors[cat_name], "#555555")
-  
-  map <- map %>%
-    addPolylines(
-      data = lines_split[[cat_name]],
-      color = col,
-      weight = 2, opacity = 1,
-      group = cat_name, 
-      popup = ~gna
-    )
-}
-
-# 7. PREPARE & ADD POINTS
 if (!is.null(puntos_ruteo)) {
   parque_points <- filter(puntos_ruteo, nam == "Parque de la Memoria")
   other_stops   <- filter(puntos_ruteo, nam != "Parque de la Memoria")
@@ -98,58 +74,80 @@ if (!is.null(puntos_ruteo)) {
   parque_points <- NULL; other_stops <- NULL
 }
 
-# A. Standard Stops
-if (!is.null(other_stops) && nrow(other_stops) > 0) {
-  map <- map %>% addCircleMarkers(
-    data = other_stops, radius = 4, 
-    fillColor = "#faff39", fillOpacity = 0.8,
-    stroke = TRUE, color = "#e6bc26", weight = 1.5,
-    group = "Routing end points"
-  )
-}
-
-# B. Parque de la Memoria
-if (!is.null(parque_points) && nrow(parque_points) > 0) {
-  map <- map %>% addCircleMarkers(
-    data = parque_points, radius = 6, 
-    fillColor = "darkorange", fillOpacity = 1,
-    stroke = TRUE, color = "tomato", weight = 2,
-    group = "Starting routing point"
-  )
-}
-
-# C. EcoBici
-if (!is.null(ecobici)) {
-  map <- map %>% addCircleMarkers(
-    data = ecobici, radius = 2, 
-    fillColor = "#fd7da3", fillOpacity = 0.8,
-    stroke = TRUE, color = "#cb6598", weight = 0.3, 
-    group = "EcoBici Stations"
-  )
-}
-
-# 8. DEFINE CUSTOM ORDER (The Fix)
 desired_order <- c(
-  "Starting routing point",
+  "Starting routing point",  
   "Routing end points",
-  "Current routing",
-  "Suggested routing",
+  "Current routing",         # Dashed
+  "Suggested routing",       # Dashed
   "EcoBici Stations",
   "Bike lane",
   "One-way bike lane",
-  "Suggested bike lanes"
+  "Suggested bike lanes"     
 )
 
-# Collect all group names that actually exist in the data we just plotted
-existing_groups <- c(names(lines_split), "Routing end points", "Starting routing point", "EcoBici Stations")
+map <- leaflet() %>%
+  setView(lng = -58.44, lat = -34.61, zoom = 12) %>%
+  addTiles(
+    urlTemplate = "[https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/](https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/){z}/{x}/{-y}.png",
+    attribution = "Argenmap - IGN Argentina",
+    options = tileOptions(tms = TRUE), group = "Argenmap"
+  ) %>%
+  addProviderTiles(providers$CartoDB.DarkMatter, group = "Carto Dark Matter")
 
-# Intersect matches 'desired_order' against 'existing_groups'
-# This keeps ONLY the groups that exist, but enforces YOUR specific order
-final_groups <- intersect(desired_order, existing_groups)
+for (group_name in rev(desired_order)) {
+  
+  if (group_name %in% names(lines_split)) {
+    
+    layer_data <- lines_split[[group_name]]
+    
+    col <- ifelse(group_name %in% names(my_colors), my_colors[group_name], "#555555")
+    
+    my_dash <- if(group_name %in% c("Current routing", "Suggested routing")) "5, 7" else NULL
+    
+    map <- map %>%
+      addPolylines(
+        data = layer_data,
+        color = col,
+        weight = 2, opacity = 1,
+        dashArray = my_dash,  
+        group = group_name, 
+        popup = ~gna
+      )
+  
+
+  } else if (group_name == "Starting routing point" && !is.null(parque_points)) {
+    map <- map %>% addCircleMarkers(
+      data = parque_points, radius = 6, fillColor = "darkorange", fillOpacity = 1,
+      stroke = TRUE, color = "tomato", weight = 2,
+      group = group_name
+    )
+    
+  } else if (group_name == "Routing end points" && !is.null(other_stops)) {
+    map <- map %>% addCircleMarkers(
+      data = other_stops, radius = 4, fillColor = "#faff39", fillOpacity = 0.8,
+      stroke = TRUE, color = "#e6bc26", weight = 1.5,
+      group = group_name
+    )
+    
+  } else if (group_name == "EcoBici Stations" && !is.null(ecobici)) {
+    map <- map %>% addCircleMarkers(
+      data = ecobici, radius = 2, fillColor = "#fd7da3", fillOpacity = 0.8,
+      stroke = TRUE, color = "#cb6598", weight = 0.3,
+      group = group_name
+    )
+  }
+}
+
+existing_lines <- names(lines_split)
+existing_points <- c("Starting routing point", "Routing end points", "EcoBici Stations")
+all_found <- c(existing_lines, existing_points)
+
+final_groups <- intersect(desired_order, all_found)
 
 map %>%
   addLayersControl(
-    overlayGroups = final_groups, # <--- CHANGED THIS from 'all_groups'
+    baseGroups = c("Argenmap", "Carto Dark Matter"),
+    overlayGroups = final_groups, 
     options = layersControlOptions(collapsed = FALSE)
   )
 ```
