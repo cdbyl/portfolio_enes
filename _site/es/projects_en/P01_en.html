@@ -26,7 +26,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -425,8 +424,8 @@ config:
     padding: 5
 ---
 flowchart TD
-    C(Basin Boundary) --&gt;|Crop| B(Mask) --&gt; Y
-    A(Water courses) --&gt;|Crop| Y
+    C(Basin Boundary) --&gt;|Clip| B(Mask) --&gt; Y
+    A(Water courses) --&gt;|Clip| Y
     D(Census radii) --&gt; |Selection of housing variables| E(Housing Index raw data) --&gt; |Operations| F(Housing Index) --&gt; Y
     G(Public health establishments) --&gt; |Buffer, dissolve| H(Health Index)
     I(Static waste disposal map) --&gt; |Digitalization from satellite images| J(Waste disposal locations) --&gt; |Buffer and scoring by distance| H --&gt; Y

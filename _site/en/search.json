@@ -14,13 +14,6 @@
     "text": "GIS Analyst and Environmental Engineer with 4+ years of experience delivering spatial analysis, cartographic products, and cloud-based geospatial solutions for environmental and infrastructure projects.\nProven background in enterprise geodatabases, remote sensing analysis using Google Earth Engine, and field data collection workflows.\nProgramming experience in Python, SQL, and JavaScript, applied to support multidisciplinary teams in national and international contexts, including technical instruction and mentoring.\nYou’re welcome to check out some of my work in the “Projects” tab of this site."
   },
   {
-    "objectID": "index.html#wip---draft",
-    "href": "index.html#wip---draft",
-    "title": "Carolina Byl",
-    "section": "",
-    "text": "You can find projects I’ve worked on in the “Projects” tab on this site.\nI hope you can check out some of the projects I’ve worked on in this site.\nYou’re welcome to check out some of the projects I’ve worked on in this site."
-  },
-  {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Carolina Byl",
@@ -119,32 +112,67 @@
     "text": "The final map for Day 8"
   },
   {
-    "objectID": "projects_en/P11_en.html#project-overview",
-    "href": "projects_en/P11_en.html#project-overview",
-    "title": "Bike lanes in Buenos Aires City",
+    "objectID": "projects_en/P13_en.html#main-tasks",
+    "href": "projects_en/P13_en.html#main-tasks",
+    "title": "DDBB management and cartography for Environmental Impact Assessments",
+    "section": "Main tasks",
+    "text": "Main tasks\n\n\n\n\n\nPhysical delivery of an Environmental Impact Assessment (NDA covered).\n\n\n\n\nDatabase Management: I maintained rigorous spatial databases to track environmental monitoring data across multi-year project lifecycles.\nHigh-Volume Cartography: I developed standardized workflows to generate ‘batch’ map series. This ensured that hundreds of deliverables maintained a consistent, high-quality aesthetic compliant with strict corporate and regulatory standards for EIAs.\n\n\n\n\n\nInterdisciplinary collaboration: Acted as a technical bridge between diverse specialist teams (geology, biology, sociology, hydrology) and project management, translating complex spatial data into clear, decision-ready visuals."
+  },
+  {
+    "objectID": "projects_en/P13_en.html#tools",
+    "href": "projects_en/P13_en.html#tools",
+    "title": "DDBB management and cartography for Environmental Impact Assessments",
+    "section": "Tools",
+    "text": "Tools\n\nArcGIS Pro (Esri): utilized Jupyter Notebooks for automated cartography production.\nArcGIS Desktop (Esri): managed legacy cartography and workflows.\nGeodatabase Management: ensured data integrity.\nArcGIS Online SaaS: deployed FieldMaps, Survey123, and ExperienceBuilder for field data collection by internal team and monitoring by clients.\nMicrosoft Azure: managed servers to host and serve ArcGIS Online web apps.\nMicrosoft Office: developed a SharePoint automation app to streamline incoming mapping requests.\nGoogle Earth Engine: conducted climate and vegetation analysis on a regional scale.\nQGIS: utilized for georeferencing and interoperability checks."
+  },
+  {
+    "objectID": "projects_en/P12_en.html#project-overview",
+    "href": "projects_en/P12_en.html#project-overview",
+    "title": "Night lights, railways and settlements",
     "section": "Project Overview",
-    "text": "Project Overview\nThe maps below show the current state of cycling infrastructure in Buenos Aires city, overlaying a routing analysis I did to highlight critical gaps in the network.\n\nInfratructure\nThe solid green and purple lines show the existing bike lane network, and the pink dots are the EcoBici stations to rent the City’s bikes.\n\nA notable north-south disparity can be seen in the abundance of stations and the large areas uncovered by the network.\n\nThe isolated lanes were connected with the suggested red lines to allow for a better connectivity.\n\n\nRouting analysis\nTo demonstrate the impact of these gaps, a cyclist’s journey was simulated using QGIS’ tool “Shortest path” starting from Parque de la Memoria (large orange dot) in the north to various destinations in the south and east (yellow dots).\nThe current routing (dashed black lines) show that a cyclist can’t get to the south without exiting the network; meanwhile the routing using the suggested red bike lane shows a new route (orange dashed lines).\n\nWhile the network is extensive, it is not yet equitable. Closing the gaps in the south would not only improve safety but also strengthen intermodal links (like at Sáenz Station) and guarantee that active mobility is a viable option for all residents, regardless of where they live."
+    "text": "Project Overview\n\nThis visualization overlays annual VIIRS night light data onto the railway network of Buenos Aires Province.\nThe high contrast of nighttime imagery highlights a distinct spatial correlation: urban settlements align closely with railway corridors, a pattern that persists even along lines that have been abandoned.\nThis relationship underscores the historical influence of rail infrastructure on the region’s urbanization and suggests significant potential for reactivating these corridors to enhance sustainable logistics and regional connectivity."
   },
   {
-    "objectID": "projects_en/P11_en.html#data-sources-and-tools",
-    "href": "projects_en/P11_en.html#data-sources-and-tools",
-    "title": "Bike lanes in Buenos Aires City",
+    "objectID": "projects_en/P12_en.html#data-sources-and-tools",
+    "href": "projects_en/P12_en.html#data-sources-and-tools",
+    "title": "Night lights, railways and settlements",
     "section": "Data Sources and Tools",
-    "text": "Data Sources and Tools\n\nBike lanes and EcoBici stations: IDECABA\nBasemap: Argenmap by National Geography Institute of Argentina\n\n\n\nMade with GIS 3.22.4-Białowieża"
+    "text": "Data Sources and Tools\n\nNOAA’s VIIRS Nighttime Day/Night Annual Band Composites V2.2 with Google Earth Engine\nSettlements: Argentine Settlements Database (BAHRA)\nRailroads: OpenStreetMap, using QuickOSM plugin in QGIS\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
-    "objectID": "projects_en/P11_en.html#interactive-map",
-    "href": "projects_en/P11_en.html#interactive-map",
-    "title": "Bike lanes in Buenos Aires City",
-    "section": "Interactive map",
-    "text": "Interactive map\n\n\nClick to view code\nlibrary(sf)\nlibrary(leaflet)\nlibrary(dplyr)\n\nsf_use_s2(FALSE)\nfolder_path &lt;- \"../vectors\" #all single features, in EPSG: 4326 and geometries checked\n\nload_layer &lt;- function(filename) {\n  full_path &lt;- file.path(folder_path, filename)\n  if (file.exists(full_path)) {\n    return(st_read(full_path, quiet = TRUE) %&gt;% st_zm())\n  }\n  return(NULL)\n}\n\nmerged_lines &lt;- load_layer(\"merged_single.geojson\")\necobici      &lt;- load_layer(\"ecobici.geojson\")\npuntos_ruteo &lt;- load_layer(\"ptruteo.geojson\")\n\nif (!is.null(ecobici)) ecobici &lt;- st_cast(ecobici, \"POINT\")\nif (!is.null(puntos_ruteo)) puntos_ruteo &lt;- st_cast(puntos_ruteo, \"POINT\")\n\npal &lt;- list(\n  \"Bike lane\"            = \"#1b9e77\",\n  \"One-way bike lane\"    = \"#7570b3\",\n  \"Suggested bike lanes\" = \"red\",\n  \"Suggested routing\"    = \"#d95f02\", \n  \"Current routing\"      = \"black\",\n  \"Start Point\"          = \"darkorange\", \n  \"End Point\"            = \"#faff39\",    \n  \"EcoBici\"              = \"#fd7da3\"     \n)\n\ntoggle_mapping &lt;- list(\n  \"Starting routing point\" = \"Routing Layers\",\n  \"Routing end points\"     = \"Routing Layers\",\n  \"Current routing\"        = \"Routing Layers\",\n  \"Suggested routing\"      = \"Routing Layers\",\n  \"EcoBici Stations\"       = \"Infrastructure\",\n  \"Bike lane\"              = \"Infrastructure\",\n  \"One-way bike lane\"      = \"Infrastructure\",\n  \"Suggested bike lanes\"   = \"Infrastructure\"\n)\n\nif (!is.null(merged_lines)) {\n  lines_split &lt;- split(merged_lines, merged_lines$gna)\n} else {\n  lines_split &lt;- list()\n}\n\nif (!is.null(puntos_ruteo)) {\n  parque_points &lt;- filter(puntos_ruteo, nam == \"Parque de la Memoria\")\n  other_stops   &lt;- filter(puntos_ruteo, nam != \"Parque de la Memoria\")\n} else {\n  parque_points &lt;- NULL; other_stops &lt;- NULL\n}\n\ndesired_order &lt;- c(\n  \"Starting routing point\",  \n  \"Routing end points\",\n  \"Current routing\",         # Dashed\n  \"Suggested routing\",       # Dashed\n  \"EcoBici Stations\",\n  \"Bike lane\",\n  \"One-way bike lane\",\n  \"Suggested bike lanes\"     \n)\n\nmap &lt;- leaflet() %&gt;%\n  setView(lng = -58.46, lat = -34.60, zoom = 12) %&gt;%\n  addTiles(\n    urlTemplate = \"https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png\",\n    attribution = \"Argenmap - IGN Argentina\",\n    options = tileOptions(tms = FALSE), \n    group = \"Argenmap\"\n  ) %&gt;%\n  addProviderTiles(providers$CartoDB.DarkMatter, group = \"Carto Dark Matter\")\n\nfor (group_name in rev(desired_order)) {\n  my_toggle_group &lt;- toggle_mapping[[group_name]]\n  \n  if (group_name %in% names(lines_split)) {\n    layer_data &lt;- lines_split[[group_name]]\n    col &lt;- ifelse(group_name %in% names(pal), pal[group_name], \"#555555\")\n    my_dash &lt;- if(group_name %in% c(\"Current routing\", \"Suggested routing\")) \"5, 7\" else NULL\n    \n    map &lt;- map %&gt;%\n      addPolylines(\n        data = layer_data, color = col, weight = 2, opacity = 1,\n        dashArray = my_dash, group = my_toggle_group,\n        popup = ~gna\n      )\n\n  } else if (group_name == \"Starting routing point\" && !is.null(parque_points)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = parque_points, radius = 6, fillColor = \"darkorange\", fillOpacity = 1,\n      stroke = TRUE, color = \"tomato\", weight = 2,\n      group = my_toggle_group, popup = ~nam\n    )\n    \n  } else if (group_name == \"Routing end points\" && !is.null(other_stops)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = other_stops, radius = 4, fillColor = \"#faff39\", fillOpacity = 0.8,\n      stroke = TRUE, color = \"#e6bc26\", weight = 1.5,\n      group = my_toggle_group, popup = ~nam\n    )\n    \n  } else if (group_name == \"EcoBici Stations\" && !is.null(ecobici)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = ecobici, radius = 2, fillColor = \"#ba0e64\", fillOpacity = 0.7,\n      stroke = TRUE, color = \"lightpink\", weight = 0.7,\n      group = my_toggle_group, popup = ~nam\n    )\n  }\n}\n\nmap &lt;- map %&gt;%\n  addLegend(\n    position = \"bottomleft\",\n    colors = c(\n      pal[[\"Current routing\"]], \n      pal[[\"Suggested routing\"]],\n      pal[[\"Bike lane\"]], \n      pal[[\"One-way bike lane\"]],\n      pal[[\"Suggested bike lanes\"]],\n      pal[[\"Start Point\"]],\n      pal[[\"End Point\"]],\n      pal[[\"EcoBici\"]]\n    ),\n    labels = c(\n      \"Current Routing (Dashed)\", \n      \"Suggested Routing (Dashed)\",\n      \"Bike Lane\", \n      \"One-way Lane\", \n      \"Suggested Lane\",\n      \"Start Point\",\n      \"End Points\",\n      \"EcoBici Station\"\n    ),\n    opacity = 1,\n    title = \"References\"\n  )\n\n\nmap %&gt;%\n  addLayersControl(\n    baseGroups = c(\"Argenmap\", \"Carto Dark Matter\"),\n    overlayGroups = c(\"Routing Layers\", \"Infrastructure\"), \n    options = layersControlOptions(collapsed = FALSE)\n  )"
+    "objectID": "projects_en/P12_en.html#google-earth-engine-code",
+    "href": "projects_en/P12_en.html#google-earth-engine-code",
+    "title": "Night lights, railways and settlements",
+    "section": "Google Earth Engine code",
+    "text": "Google Earth Engine code\n\n\nClick to view\n\n\n\nGEE Script Day 28-Black\n\n// 1. Load  ROI to map from assets\nMap.addLayer(roi);\nMap.centerObject(roi);\n\n// 2. Define date range\nvar date = ee.DateRange('2024-01-01', '2025-12-31');\n\n// 3. Import dataset and process\nvar dataset = ee.ImageCollection('NOAA/VIIRS/DNB/ANNUAL_V22')\n                  .filter(ee.Filter.date(date))\n                  .filterBounds(roi);\n                  \nvar nighttime = dataset.select('average_masked');\nvar nighttime_image = nighttime.median().clip(poi);\n\n// 4. Set visualization parameters\nvar nighttimeVis = {min: 0.0, max: 60.0};\nMap.addLayer(nighttime_image, nighttimeVis, 'Nighttime');\n\n// 5. Raster was exported to produce the map\nExport.image.toDrive({\n  image: nighttime_image.select('average_masked'),\n  description: 'Nighttime',\n  folder: 'Nighttime_exports',\n  region: roi.geometry(),\n  scale: 100,\n  maxPixels: 1e13\n});"
   },
   {
-    "objectID": "projects_en/P11_en.html#the-final-map-for-day-26",
-    "href": "projects_en/P11_en.html#the-final-map-for-day-26",
-    "title": "Bike lanes in Buenos Aires City",
-    "section": "The final map for Day 26",
-    "text": "The final map for Day 26"
+    "objectID": "projects_en/P12_en.html#the-final-map-for-day-28",
+    "href": "projects_en/P12_en.html#the-final-map-for-day-28",
+    "title": "Night lights, railways and settlements",
+    "section": "The final map for Day 28",
+    "text": "The final map for Day 28"
+  },
+  {
+    "objectID": "projects-es.html",
+    "href": "projects-es.html",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "No matching items"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "Select a category from the right to filter the projects. Click on “All” to remove the filters."
+  },
+  {
+    "objectID": "projects.html#featured-work",
+    "href": "projects.html#featured-work",
+    "title": "GIS Portfolio",
+    "section": "",
+    "text": "Select a category from the right to filter the projects. Click on “All” to remove the filters."
   },
   {
     "objectID": "projects_en/P08_en.html#project-overview",
@@ -175,53 +203,32 @@
     "text": "The final map for Day 15"
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "Select a category from the right to filter the projects. Click on “All” to remove the filters."
-  },
-  {
-    "objectID": "projects.html#featured-work",
-    "href": "projects.html#featured-work",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "Select a category from the right to filter the projects. Click on “All” to remove the filters."
-  },
-  {
-    "objectID": "projects-es.html",
-    "href": "projects-es.html",
-    "title": "GIS Portfolio",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "projects_en/P12_en.html#project-overview",
-    "href": "projects_en/P12_en.html#project-overview",
-    "title": "Night lights, railways and settlements",
+    "objectID": "projects_en/P11_en.html#project-overview",
+    "href": "projects_en/P11_en.html#project-overview",
+    "title": "Bike lanes in Buenos Aires City",
     "section": "Project Overview",
-    "text": "Project Overview\n\nThis visualization overlays annual VIIRS night light data onto the railway network of Buenos Aires Province.\nThe high contrast of nighttime imagery highlights a distinct spatial correlation: urban settlements align closely with railway corridors, a pattern that persists even along lines that have been abandoned.\nThis relationship underscores the historical influence of rail infrastructure on the region’s urbanization and suggests significant potential for reactivating these corridors to enhance sustainable logistics and regional connectivity."
+    "text": "Project Overview\nThe maps below show the current state of cycling infrastructure in Buenos Aires city, overlaying a routing analysis I did to highlight critical gaps in the network.\n\nInfratructure\nThe solid green and purple lines show the existing bike lane network, and the pink dots are the EcoBici stations to rent the City’s bikes.\n\nA notable north-south disparity can be seen in the abundance of stations and the large areas uncovered by the network.\n\nThe isolated lanes were connected with the suggested red lines to allow for a better connectivity.\n\n\nRouting analysis\nTo demonstrate the impact of these gaps, a cyclist’s journey was simulated using QGIS’ tool “Shortest path” starting from Parque de la Memoria (large orange dot) in the north to various destinations in the south and east (yellow dots).\nThe current routing (dashed black lines) show that a cyclist can’t get to the south without exiting the network; meanwhile the routing using the suggested red bike lane shows a new route (orange dashed lines).\n\nWhile the network is extensive, it is not yet equitable. Closing the gaps in the south would not only improve safety but also strengthen intermodal links (like at Sáenz Station) and guarantee that active mobility is a viable option for all residents, regardless of where they live."
   },
   {
-    "objectID": "projects_en/P12_en.html#data-sources-and-tools",
-    "href": "projects_en/P12_en.html#data-sources-and-tools",
-    "title": "Night lights, railways and settlements",
+    "objectID": "projects_en/P11_en.html#data-sources-and-tools",
+    "href": "projects_en/P11_en.html#data-sources-and-tools",
+    "title": "Bike lanes in Buenos Aires City",
     "section": "Data Sources and Tools",
-    "text": "Data Sources and Tools\n\nNOAA’s VIIRS Nighttime Day/Night Annual Band Composites V2.2 with Google Earth Engine\nSettlements: Argentine Settlements Database (BAHRA)\nRailroads: OpenStreetMap, using QuickOSM plugin in QGIS\n\n\n\nMade with GIS 3.22.4-Białowieża"
+    "text": "Data Sources and Tools\n\nBike lanes and EcoBici stations: IDECABA\nBasemap: Argenmap by National Geography Institute of Argentina\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
-    "objectID": "projects_en/P12_en.html#google-earth-engine-code",
-    "href": "projects_en/P12_en.html#google-earth-engine-code",
-    "title": "Night lights, railways and settlements",
-    "section": "Google Earth Engine code",
-    "text": "Google Earth Engine code\n\n\nClick to view\n\n\n\nGEE Script Day 28-Black\n\n// 1. Load  ROI to map from assets\nMap.addLayer(roi);\nMap.centerObject(roi);\n\n// 2. Define date range\nvar date = ee.DateRange('2024-01-01', '2025-12-31');\n\n// 3. Import dataset and process\nvar dataset = ee.ImageCollection('NOAA/VIIRS/DNB/ANNUAL_V22')\n                  .filter(ee.Filter.date(date))\n                  .filterBounds(roi);\n                  \nvar nighttime = dataset.select('average_masked');\nvar nighttime_image = nighttime.median().clip(poi);\n\n// 4. Set visualization parameters\nvar nighttimeVis = {min: 0.0, max: 60.0};\nMap.addLayer(nighttime_image, nighttimeVis, 'Nighttime');\n\n// 5. Raster was exported to produce the map\nExport.image.toDrive({\n  image: nighttime_image.select('average_masked'),\n  description: 'Nighttime',\n  folder: 'Nighttime_exports',\n  region: roi.geometry(),\n  scale: 100,\n  maxPixels: 1e13\n});"
+    "objectID": "projects_en/P11_en.html#interactive-map",
+    "href": "projects_en/P11_en.html#interactive-map",
+    "title": "Bike lanes in Buenos Aires City",
+    "section": "Interactive map",
+    "text": "Interactive map\n\n\nClick to view code\nlibrary(sf)\nlibrary(leaflet)\nlibrary(dplyr)\n\nsf_use_s2(FALSE)\nfolder_path &lt;- \"../vectors\" #all single features, in EPSG: 4326 and geometries checked\n\nload_layer &lt;- function(filename) {\n  full_path &lt;- file.path(folder_path, filename)\n  if (file.exists(full_path)) {\n    return(st_read(full_path, quiet = TRUE) %&gt;% st_zm())\n  }\n  return(NULL)\n}\n\nmerged_lines &lt;- load_layer(\"merged_single.geojson\")\necobici      &lt;- load_layer(\"ecobici.geojson\")\npuntos_ruteo &lt;- load_layer(\"ptruteo.geojson\")\n\nif (!is.null(ecobici)) ecobici &lt;- st_cast(ecobici, \"POINT\")\nif (!is.null(puntos_ruteo)) puntos_ruteo &lt;- st_cast(puntos_ruteo, \"POINT\")\n\npal &lt;- list(\n  \"Bike lane\"            = \"#1b9e77\",\n  \"One-way bike lane\"    = \"#7570b3\",\n  \"Suggested bike lanes\" = \"red\",\n  \"Suggested routing\"    = \"#d95f02\", \n  \"Current routing\"      = \"black\",\n  \"Start Point\"          = \"darkorange\", \n  \"End Point\"            = \"#faff39\",    \n  \"EcoBici\"              = \"#fd7da3\"     \n)\n\ntoggle_mapping &lt;- list(\n  \"Starting routing point\" = \"Routing Layers\",\n  \"Routing end points\"     = \"Routing Layers\",\n  \"Current routing\"        = \"Routing Layers\",\n  \"Suggested routing\"      = \"Routing Layers\",\n  \"EcoBici Stations\"       = \"Infrastructure\",\n  \"Bike lane\"              = \"Infrastructure\",\n  \"One-way bike lane\"      = \"Infrastructure\",\n  \"Suggested bike lanes\"   = \"Infrastructure\"\n)\n\nif (!is.null(merged_lines)) {\n  lines_split &lt;- split(merged_lines, merged_lines$gna)\n} else {\n  lines_split &lt;- list()\n}\n\nif (!is.null(puntos_ruteo)) {\n  parque_points &lt;- filter(puntos_ruteo, nam == \"Parque de la Memoria\")\n  other_stops   &lt;- filter(puntos_ruteo, nam != \"Parque de la Memoria\")\n} else {\n  parque_points &lt;- NULL; other_stops &lt;- NULL\n}\n\ndesired_order &lt;- c(\n  \"Starting routing point\",  \n  \"Routing end points\",\n  \"Current routing\",         # Dashed\n  \"Suggested routing\",       # Dashed\n  \"EcoBici Stations\",\n  \"Bike lane\",\n  \"One-way bike lane\",\n  \"Suggested bike lanes\"     \n)\n\nmap &lt;- leaflet() %&gt;%\n  setView(lng = -58.46, lat = -34.60, zoom = 12) %&gt;%\n  addTiles(\n    urlTemplate = \"https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png\",\n    attribution = \"Argenmap - IGN Argentina\",\n    options = tileOptions(tms = FALSE), \n    group = \"Argenmap\"\n  ) %&gt;%\n  addProviderTiles(providers$CartoDB.DarkMatter, group = \"Carto Dark Matter\")\n\nfor (group_name in rev(desired_order)) {\n  my_toggle_group &lt;- toggle_mapping[[group_name]]\n  \n  if (group_name %in% names(lines_split)) {\n    layer_data &lt;- lines_split[[group_name]]\n    col &lt;- ifelse(group_name %in% names(pal), pal[group_name], \"#555555\")\n    my_dash &lt;- if(group_name %in% c(\"Current routing\", \"Suggested routing\")) \"5, 7\" else NULL\n    \n    map &lt;- map %&gt;%\n      addPolylines(\n        data = layer_data, color = col, weight = 2, opacity = 1,\n        dashArray = my_dash, group = my_toggle_group,\n        popup = ~gna\n      )\n\n  } else if (group_name == \"Starting routing point\" && !is.null(parque_points)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = parque_points, radius = 6, fillColor = \"darkorange\", fillOpacity = 1,\n      stroke = TRUE, color = \"tomato\", weight = 2,\n      group = my_toggle_group, popup = ~nam\n    )\n    \n  } else if (group_name == \"Routing end points\" && !is.null(other_stops)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = other_stops, radius = 4, fillColor = \"#faff39\", fillOpacity = 0.8,\n      stroke = TRUE, color = \"#e6bc26\", weight = 1.5,\n      group = my_toggle_group, popup = ~nam\n    )\n    \n  } else if (group_name == \"EcoBici Stations\" && !is.null(ecobici)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = ecobici, radius = 2, fillColor = \"#ba0e64\", fillOpacity = 0.7,\n      stroke = TRUE, color = \"lightpink\", weight = 0.7,\n      group = my_toggle_group, popup = ~nam\n    )\n  }\n}\n\nmap &lt;- map %&gt;%\n  addLegend(\n    position = \"bottomleft\",\n    colors = c(\n      pal[[\"Current routing\"]], \n      pal[[\"Suggested routing\"]],\n      pal[[\"Bike lane\"]], \n      pal[[\"One-way bike lane\"]],\n      pal[[\"Suggested bike lanes\"]],\n      pal[[\"Start Point\"]],\n      pal[[\"End Point\"]],\n      pal[[\"EcoBici\"]]\n    ),\n    labels = c(\n      \"Current Routing (Dashed)\", \n      \"Suggested Routing (Dashed)\",\n      \"Bike Lane\", \n      \"One-way Lane\", \n      \"Suggested Lane\",\n      \"Start Point\",\n      \"End Points\",\n      \"EcoBici Station\"\n    ),\n    opacity = 1,\n    title = \"References\"\n  )\n\n\nmap %&gt;%\n  addLayersControl(\n    baseGroups = c(\"Argenmap\", \"Carto Dark Matter\"),\n    overlayGroups = c(\"Routing Layers\", \"Infrastructure\"), \n    options = layersControlOptions(collapsed = FALSE)\n  )"
   },
   {
-    "objectID": "projects_en/P12_en.html#the-final-map-for-day-28",
-    "href": "projects_en/P12_en.html#the-final-map-for-day-28",
-    "title": "Night lights, railways and settlements",
-    "section": "The final map for Day 28",
-    "text": "The final map for Day 28"
+    "objectID": "projects_en/P11_en.html#the-final-maps-for-day-26",
+    "href": "projects_en/P11_en.html#the-final-maps-for-day-26",
+    "title": "Bike lanes in Buenos Aires City",
+    "section": "The final maps for Day 26",
+    "text": "The final maps for Day 26"
   },
   {
     "objectID": "projects_en/P01_en.html#project-overview",
@@ -355,12 +362,5 @@
     "title": "Minimalist map of an Argentinian town",
     "section": "The final map for Day 11",
     "text": "The final map for Day 11\n\n\n\n\n\nFirst hint\n\nIt’s in Argentina\n\n\n\nSecond hint\n\nIt’s in Buenos Aires Province (not the Capital city)\n\n\n\nAnswer!\n\nIt’s Chascomús"
-  },
-  {
-    "objectID": "projects_en/P11_en.html#the-final-maps-for-day-26",
-    "href": "projects_en/P11_en.html#the-final-maps-for-day-26",
-    "title": "Bike lanes in Buenos Aires City",
-    "section": "The final maps for Day 26",
-    "text": "The final maps for Day 26"
   }
 ]

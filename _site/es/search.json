@@ -23,21 +23,21 @@
   {
     "objectID": "projects_en/P09_en.html#project-overview",
     "href": "projects_en/P09_en.html#project-overview",
-    "title": "Hydrographic basins in Buenos Aires City",
+    "title": "Hidden hydrographic basins in Buenos Aires City",
     "section": "Project Overview",
     "text": "Project Overview\n\n\nThis map shows watercourses of Buenos Aires, which are hidden in tunnels beneath the city. On the map, some of the drainage tunnels added in recent years are highlighted:\n\nVega Relief Tunnel — built to address the recurring floods in the Belgrano area.\nMaldonado Relief Tunnel — also constructed to reduce flooding along Av. Juan B. Justo.\nCildañez Relief Tunnel — part of the Maldonado’s flow is diverted here so that the Cildañez never runs completely dry, helping prevent bad odors under the area of the Olympic Village built for the 2018 Youth Olympic Games (see picture).\n\n\n\n\n\nMaldonado stream going into Cildañez stream."
   },
   {
     "objectID": "projects_en/P09_en.html#data-sources-and-tools",
     "href": "projects_en/P09_en.html#data-sources-and-tools",
-    "title": "Hydrographic basins in Buenos Aires City",
+    "title": "Hidden hydrographic basins in Buenos Aires City",
     "section": "Data Sources and Tools",
     "text": "Data Sources and Tools\n\nWatercourses and tunnels, hydrographic basins: IDECABA\nBasemap: CARTO Voyager\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
     "objectID": "projects_en/P09_en.html#the-final-map-for-day-20",
     "href": "projects_en/P09_en.html#the-final-map-for-day-20",
-    "title": "Hydrographic basins in Buenos Aires City",
+    "title": "Hidden hydrographic basins in Buenos Aires City",
     "section": "The final map for Day 20",
     "text": "The final map for Day 20"
   },
@@ -65,79 +65,114 @@
   {
     "objectID": "projects_en/P06_en.html#project-overview",
     "href": "projects_en/P06_en.html#project-overview",
-    "title": "Carbon monoxide concentration in Delta del Paraná, Argentina",
+    "title": "Carbon monoxide concentration in Delta del Paraná fires",
     "section": "Project Overview",
     "text": "Project Overview\n\n\nSentinel-5P (TROPOMI) dataset was used to visualize carbon monoxide (CO) levels over the Paraná Delta (Argentina) during the 2020 wildfires, compared with 2022 values.\nRemote sensing, in this case, makes it possible to detect fires through atmospheric gases and helps us understand how these events affect not only ecosystems but also nearby cities and communities.\n\n\n\n\nFiremen aiding at the wildfires in 2020.\n\n\n\n\n\nThis work was part of the course “Geostationary Satellites and their Applications to Hydrometeorology”, which I completed at the Gulich Institute (UNC–CONAE) in late 2024."
   },
   {
     "objectID": "projects_en/P06_en.html#data-sources-and-tools",
     "href": "projects_en/P06_en.html#data-sources-and-tools",
-    "title": "Carbon monoxide concentration in Delta del Paraná, Argentina",
+    "title": "Carbon monoxide concentration in Delta del Paraná fires",
     "section": "Data Sources and Tools",
     "text": "Data Sources and Tools\n\nESA’s Sentinel-5P (TROPOMI) with Google Earth Engine\nProvince boundaries: National Geography Institute of Argentina\nBasemap: Argenmap by National Geography Institute of Argentina\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
     "objectID": "projects_en/P06_en.html#google-earth-engine-code",
     "href": "projects_en/P06_en.html#google-earth-engine-code",
-    "title": "Carbon monoxide concentration in Delta del Paraná, Argentina",
+    "title": "Carbon monoxide concentration in Delta del Paraná fires",
     "section": "Google Earth Engine code",
     "text": "Google Earth Engine code\n\n\nClick to view\n\n\n\nGEE Script Day 10-Air\n\n//1. Add Region of Interest (roi) from assets\nMap.addLayer(roi.style({color: 'purple', fillColor: '00000000', width: 2}), {}, 'ROI');\n\n// 2. Define dates\nvar date1_start = '2020-07-01';\nvar date1_end   = '2020-07-31'; \n\nvar date2_start = '2022-07-01';\nvar date2_end   = '2022-07-31';\n\n// 3. Define palette and create legend\nvar vizParams = {\n  min: 0.0197,\n  max: 0.037,\n  palette: ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000']\n};\n\n// 4. Load the TROPOMI CO collection and filter\nvar image1 = ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_CO')\n  .select('CO_column_number_density').filterDate(date1_start, date1_end).mean().clip(roi);\nvar image2 = ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_CO')\n  .select('CO_column_number_density').filterDate(date2_start, date2_end).mean().clip(roi);\n\n// 5. Visualization in GEE with legend\n// 5.1. Legend function\nfunction addLegend(title, palette, min, max, labels) {\n  var legend = ui.Panel({\n    style: {\n      position: 'bottom-left',\n      padding: '8px 15px'\n    }\n  });\n  var legendTitle = ui.Label({\n    value: title,\n    style: {\n      fontWeight: 'bold',\n      fontSize: '14px',\n      margin: '0 0 4px 0',\n      color: 'black'\n    }\n  });\n  legend.add(legendTitle);\n  var lon = ee.Image.pixelLonLat().select('longitude');\n  var gradient = lon.multiply((max - min) / 100.0).add(min);\n  var legendImage = gradient.visualize({min: min, max: max, palette: palette});\n  var thumbnail = ui.Thumbnail({\n    image: legendImage,\n    params: {bbox: [0, 0, 100, 10], dimensions: '200x20'},\n    style: {margin: '4px 0'}\n  });\n  legend.add(thumbnail);\n  var labelPanel = ui.Panel({\n    widgets: [\n      ui.Label(labels[0], {margin: '0 8px'}),\n      ui.Label(labels[1], {margin: '0 8px', textAlign: 'right', stretch: 'horizontal'})\n    ],\n    layout: ui.Panel.Layout.flow('horizontal')\n  });\n\n  legend.add(labelPanel);\n  Map.add(legend);\n}\n// 5.2. Final viz\naddLegend('CO (mol/m²)', vizParams.palette, vizParams.min, vizParams.max, [vizParams.min, vizParams.max]);\nMap.centerObject(roi);\nMap.addLayer(image1, vizParams, 'CO Level - 2020');\nMap.addLayer(image2, vizParams, 'CO Level - 2022');"
   },
   {
     "objectID": "projects_en/P06_en.html#the-final-map-for-day-10",
     "href": "projects_en/P06_en.html#the-final-map-for-day-10",
-    "title": "Carbon monoxide concentration in Delta del Paraná, Argentina",
+    "title": "Carbon monoxide concentration in Delta del Paraná fires",
     "section": "The final map for Day 10",
     "text": "The final map for Day 10"
   },
   {
     "objectID": "projects_en/P05_en.html#project-overview",
     "href": "projects_en/P05_en.html#project-overview",
-    "title": "Spatiotemporal visualization of urban growth in Tigre, Buenos Aires, Argentina",
+    "title": "Spatiotemporal visualization of urban growth",
     "section": "Project Overview",
     "text": "Project Overview\n\n\nFor this map I compared the images from 1984 and 2011 from Tigre (Buenos Aires, Argentina), an area that underwent massive urban transformations.\nDuring this period, numerous gated communities were built over former wetlands, altering the natural landscape with artificial lagoons and geometric layouts that sharply contrast with the original vegetation and terrain, which can be seen in the cartography.\n\n\n\n\nCapybaras never left the wetlands even though they changed drastically\n\n\n\n\n\nThe band combination used highlights urban areas in pink and purple tones, vegetation in green, and water bodies in dark blue or black. These compositions help visually identify qualitative patterns and serve as a first step before applying quantitative methods, such as spectral indices."
   },
   {
     "objectID": "projects_en/P05_en.html#data-sources-and-tools",
     "href": "projects_en/P05_en.html#data-sources-and-tools",
-    "title": "Spatiotemporal visualization of urban growth in Tigre, Buenos Aires, Argentina",
+    "title": "Spatiotemporal visualization of urban growth",
     "section": "Data Sources and Tools",
     "text": "Data Sources and Tools\n\nLevel 2 Landsat 5 images from July 1984 and August 2011.\n\nSWIR (~2140 nm), NIR (~830 nm) and Red (~660 nm) bands were shown for RGB respectively.\nThe raster resolution is 30 m.\n\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
     "objectID": "projects_en/P05_en.html#the-final-map-for-day-8",
     "href": "projects_en/P05_en.html#the-final-map-for-day-8",
-    "title": "Spatiotemporal visualization of urban growth in Tigre, Buenos Aires, Argentina",
+    "title": "Spatiotemporal visualization of urban growth",
     "section": "The final map for Day 8",
     "text": "The final map for Day 8"
   },
   {
-    "objectID": "projects_en/P11_en.html#project-overview",
-    "href": "projects_en/P11_en.html#project-overview",
-    "title": "Bike lanes in Buenos Aires City",
+    "objectID": "projects_en/P13_en.html#main-tasks",
+    "href": "projects_en/P13_en.html#main-tasks",
+    "title": "DDBB management and cartography for Environmental Impact Assessments",
+    "section": "Main tasks",
+    "text": "Main tasks\n\n\n\n\n\nPhysical delivery of an Environmental Impact Assessment (NDA covered).\n\n\n\n\nDatabase Management: I maintained rigorous spatial databases to track environmental monitoring data across multi-year project lifecycles.\nHigh-Volume Cartography: I developed standardized workflows to generate ‘batch’ map series. This ensured that hundreds of deliverables maintained a consistent, high-quality aesthetic compliant with strict corporate and regulatory standards for EIAs.\n\n\n\n\n\nInterdisciplinary collaboration: Acted as a technical bridge between diverse specialist teams (geology, biology, sociology, hydrology) and project management, translating complex spatial data into clear, decision-ready visuals."
+  },
+  {
+    "objectID": "projects_en/P13_en.html#tools",
+    "href": "projects_en/P13_en.html#tools",
+    "title": "DDBB management and cartography for Environmental Impact Assessments",
+    "section": "Tools",
+    "text": "Tools\n\nArcGIS Pro (Esri): utilized Jupyter Notebooks for automated cartography production.\nArcGIS Desktop (Esri): managed legacy cartography and workflows.\nGeodatabase Management: ensured data integrity.\nArcGIS Online SaaS: deployed FieldMaps, Survey123, and ExperienceBuilder for field data collection by internal team and monitoring by clients.\nMicrosoft Azure: managed servers to host and serve ArcGIS Online web apps.\nMicrosoft Office: developed a SharePoint automation app to streamline incoming mapping requests.\nGoogle Earth Engine: conducted climate and vegetation analysis on a regional scale.\nQGIS: utilized for georeferencing and interoperability checks."
+  },
+  {
+    "objectID": "projects_en/P12_en.html#project-overview",
+    "href": "projects_en/P12_en.html#project-overview",
+    "title": "Night lights, railways and settlements",
     "section": "Project Overview",
-    "text": "Project Overview\n\nlorem ipsum"
+    "text": "Project Overview\n\nThis visualization overlays annual VIIRS night light data onto the railway network of Buenos Aires Province.\nThe high contrast of nighttime imagery highlights a distinct spatial correlation: urban settlements align closely with railway corridors, a pattern that persists even along lines that have been abandoned.\nThis relationship underscores the historical influence of rail infrastructure on the region’s urbanization and suggests significant potential for reactivating these corridors to enhance sustainable logistics and regional connectivity."
   },
   {
-    "objectID": "projects_en/P11_en.html#data-sources-and-tools",
-    "href": "projects_en/P11_en.html#data-sources-and-tools",
-    "title": "Bike lanes in Buenos Aires City",
+    "objectID": "projects_en/P12_en.html#data-sources-and-tools",
+    "href": "projects_en/P12_en.html#data-sources-and-tools",
+    "title": "Night lights, railways and settlements",
     "section": "Data Sources and Tools",
-    "text": "Data Sources and Tools\n\nBike lanes and EcoBici stations: IDECABA\nBasemap: Argenmap by National Geography Institute of Argentina\n\n\n\nMade with GIS 3.22.4-Białowieża"
+    "text": "Data Sources and Tools\n\nNOAA’s VIIRS Nighttime Day/Night Annual Band Composites V2.2 with Google Earth Engine\nSettlements: Argentine Settlements Database (BAHRA)\nRailroads: OpenStreetMap, using QuickOSM plugin in QGIS\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
-    "objectID": "projects_en/P11_en.html#interactive-map",
-    "href": "projects_en/P11_en.html#interactive-map",
-    "title": "Bike lanes in Buenos Aires City",
-    "section": "Interactive map",
-    "text": "Interactive map\n\n\nClick to view the code\nlibrary(sf)\nlibrary(leaflet)\n\n# lorem ipsum"
+    "objectID": "projects_en/P12_en.html#google-earth-engine-code",
+    "href": "projects_en/P12_en.html#google-earth-engine-code",
+    "title": "Night lights, railways and settlements",
+    "section": "Google Earth Engine code",
+    "text": "Google Earth Engine code\n\n\nClick to view\n\n\n\nGEE Script Day 28-Black\n\n// 1. Load  ROI to map from assets\nMap.addLayer(roi);\nMap.centerObject(roi);\n\n// 2. Define date range\nvar date = ee.DateRange('2024-01-01', '2025-12-31');\n\n// 3. Import dataset and process\nvar dataset = ee.ImageCollection('NOAA/VIIRS/DNB/ANNUAL_V22')\n                  .filter(ee.Filter.date(date))\n                  .filterBounds(roi);\n                  \nvar nighttime = dataset.select('average_masked');\nvar nighttime_image = nighttime.median().clip(poi);\n\n// 4. Set visualization parameters\nvar nighttimeVis = {min: 0.0, max: 60.0};\nMap.addLayer(nighttime_image, nighttimeVis, 'Nighttime');\n\n// 5. Raster was exported to produce the map\nExport.image.toDrive({\n  image: nighttime_image.select('average_masked'),\n  description: 'Nighttime',\n  folder: 'Nighttime_exports',\n  region: roi.geometry(),\n  scale: 100,\n  maxPixels: 1e13\n});"
   },
   {
-    "objectID": "projects_en/P11_en.html#the-final-map-for-day-26",
-    "href": "projects_en/P11_en.html#the-final-map-for-day-26",
-    "title": "Bike lanes in Buenos Aires City",
-    "section": "The final map for Day 26",
-    "text": "The final map for Day 26"
+    "objectID": "projects_en/P12_en.html#the-final-map-for-day-28",
+    "href": "projects_en/P12_en.html#the-final-map-for-day-28",
+    "title": "Night lights, railways and settlements",
+    "section": "The final map for Day 28",
+    "text": "The final map for Day 28"
+  },
+  {
+    "objectID": "projects-es.html",
+    "href": "projects-es.html",
+    "title": "Portfolio SIG",
+    "section": "",
+    "text": "Seleccione una categoría del panel a la derecha para filtrar los proyectos.\nEN CONSTRUCCIÓN :)"
+  },
+  {
+    "objectID": "projects-es.html#proyectos-destacados",
+    "href": "projects-es.html#proyectos-destacados",
+    "title": "Portfolio SIG",
+    "section": "",
+    "text": "Seleccione una categoría del panel a la derecha para filtrar los proyectos.\nEN CONSTRUCCIÓN :)"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Portfolio SIG",
+    "section": "",
+    "text": "Night lights, railways and settlements\n\n\n\n30 day map challenge\n\nRemote Sensing\n\n\n\nCreated for Day 28 (Black) of the #30daymapchallenge, the relationship between settlement locations and railway tracks.\n\n\n\n28 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nBike lanes in Buenos Aires City\n\n\n\n30 day map challenge\n\nInteractive map\n\nUrban planning\n\n\n\nCreated for Day 26 (Transport) of the #30daymapchallenge, bike lane connectivity in Buenos Aires City.\n\n\n\n26 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nStreet names of Pergamino\n\n\n\n30 day map challenge\n\nInteractive map\n\n\n\nCreated for Day 24 (Places and their names) of the #30daymapchallenge, this map shows the street names for Pergamino city in Buenos Aires…\n\n\n\n24 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nHidden hydrographic basins in Buenos Aires City\n\n\n\n30 day map challenge\n\nUrban planning\n\n\n\nCreated for Day 20 (Water) of the #30daymapchallenge, this project shows hidden watercourses in Buenos Aires City.\n\n\n\n20 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nBurn severity for Delta del Paraná, Argentina\n\n\n\n30 day map challenge\n\nRemote Sensing\n\n\n\nCreated for Day 15 (Fire) of the #30daymapchallenge, this project shows the dNBR over the Paraná Delta before and after the 2020 wildfires.\n\n\n\n15 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMinimalist map of an Argentinian town\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 11 (Minimal map) of the #30daymapchallenge, this project shows the minimum elements to describe a city\n\n\n\n11 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nCarbon monoxide concentration in Delta del Paraná fires\n\n\n\n30 day map challenge\n\nRemote Sensing\n\n\n\nCreated for Day 10 (Air) of the #30daymapchallenge, this project shows the CO levels over the Paraná Delta, Argentina, during the 2020…\n\n\n\n10 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpatiotemporal visualization of urban growth\n\n\n\n30 day map challenge\n\nRemote Sensing\n\nUrban planning\n\n\n\nCreated for Day 8 (Urban) of the #30daymapchallenge, this map shows the drastic change in land use for the wetland area in Tigre, Buenos…\n\n\n\n8 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy bike tour around Buenos Aires City\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 4 (My Data) of the #30daymapchallenge, this map shows the route I tracked with my GPS on the Vuelta en Bici\n\n\n\n4 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nContour lines for Pampa Linda, Río Negro, Argentina\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 2 (Lines) of the #30daymapchallenge, this project visualizes the relief with all of it’s ups-and-downs in Pampa Linda…\n\n\n\n2 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nLondon plane trees in Buenos Aires City\n\n\n\n30 day map challenge\n\nUrban planning\n\n\n\nCreated for Day 1 (Points) of the #30daymapchallenge, this project visualizes the density of London plane trees in Buenos Aires City —…\n\n\n\n1 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nDDBB management and cartography for Environmental Impact Assessments\n\n\n\nConsulting\n\nRemote Sensing\n\nInteractive map\n\n\n\nDescription of my role as GIS Analyst at a multinational environmental consultancy firm.\n\n\n\n30 abr 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuality of Life Index\n\n\n\nState of the Map Latam\n\n\n\nApplication of ACUMAR’s Quality of Life Index (ICV/QLI) to the neighbor Reconquista River Basin, based on the region’s strong geographic and socioeconomic similarities to…\n\n\n\n15 nov 2019\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "projects_en/P08_en.html#project-overview",
@@ -168,53 +203,32 @@
     "text": "The final map for Day 15"
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Portfolio SIG",
-    "section": "",
-    "text": "30 day map challenge\n\nRemote Sensing\n\n\n\nCreated for Day 28 (Black) of the #30daymapchallenge, the relationship between settlement locations and railway tracks.\n\n\n\n28 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 26 (Transport) of the #30daymapchallenge, bike lane connectivity in Buenos Aires City.\n\n\n\n26 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 24 (Places and their names) of the #30daymapchallenge, this map shows the street names for Pergamino city in Buenos Aires…\n\n\n\n24 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 20 (Water) of the #30daymapchallenge, this project shows hidden watercourses in Buenos Aires City.\n\n\n\n20 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\nRemote Sensing\n\n\n\nCreated for Day 15 (Fire) of the #30daymapchallenge, this project shows the dNBR over the Paraná Delta before and after the 2020 wildfires.\n\n\n\n15 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 11 (Minimal map) of the #30daymapchallenge, this project shows the minimum elements to describe a city\n\n\n\n11 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\nRemote Sensing\n\n\n\nCreated for Day 10 (Air) of the #30daymapchallenge, this project shows the CO levels over the Paraná Delta during the 2020 wildfires vs.…\n\n\n\n10 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\nRemote Sensing\n\n\n\nCreated for Day 8 (Urban) of the #30daymapchallenge, this map shows the drastic change in land use for the wetland area.\n\n\n\n8 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 4 (My Data) of the #30daymapchallenge, this map shows the route I tracked with my GPS on the Vuelta en Bici\n\n\n\n4 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 2 (Lines) of the #30daymapchallenge, this project visualizes the relief with all of it’s ups-and-downs in Pampa Linda…\n\n\n\n2 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n30 day map challenge\n\n\n\nCreated for Day 1 (Points) of the #30daymapchallenge, this project visualizes the density of London plane trees in Buenos Aires City —…\n\n\n\n1 nov 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nState of the Map Latam\n\n\n\nApplication of ACUMAR’s Quality of Life Index (ICV/QLI) to the neighbor Reconquista River Basin, based on the region’s strong geographic and socioeconomic similarities to…\n\n\n\n15 nov 2019\n\n\n\n\n\n\nNo hay resultados"
-  },
-  {
-    "objectID": "projects-es.html",
-    "href": "projects-es.html",
-    "title": "Portfolio SIG",
-    "section": "",
-    "text": "Seleccione una categoría del panel a la derecha para filtrar los proyectos.\nEN CONSTRUCCIÓN :)"
-  },
-  {
-    "objectID": "projects-es.html#proyectos-destacados",
-    "href": "projects-es.html#proyectos-destacados",
-    "title": "Portfolio SIG",
-    "section": "",
-    "text": "Seleccione una categoría del panel a la derecha para filtrar los proyectos.\nEN CONSTRUCCIÓN :)"
-  },
-  {
-    "objectID": "projects_en/P12_en.html#project-overview",
-    "href": "projects_en/P12_en.html#project-overview",
-    "title": "Night lights, railways and settlements",
+    "objectID": "projects_en/P11_en.html#project-overview",
+    "href": "projects_en/P11_en.html#project-overview",
+    "title": "Bike lanes in Buenos Aires City",
     "section": "Project Overview",
-    "text": "Project Overview\n\nThis visualization overlays annual VIIRS night light data onto the railway network of Buenos Aires Province.\nThe high contrast of nighttime imagery highlights a distinct spatial correlation: urban settlements align closely with railway corridors, a pattern that persists even along lines that have been abandoned.\nThis relationship underscores the historical influence of rail infrastructure on the region’s urbanization and suggests significant potential for reactivating these corridors to enhance sustainable logistics and regional connectivity.”"
+    "text": "Project Overview\nThe maps below show the current state of cycling infrastructure in Buenos Aires city, overlaying a routing analysis I did to highlight critical gaps in the network.\n\nInfratructure\nThe solid green and purple lines show the existing bike lane network, and the pink dots are the EcoBici stations to rent the City’s bikes.\n\nA notable north-south disparity can be seen in the abundance of stations and the large areas uncovered by the network.\n\nThe isolated lanes were connected with the suggested red lines to allow for a better connectivity.\n\n\nRouting analysis\nTo demonstrate the impact of these gaps, a cyclist’s journey was simulated using QGIS’ tool “Shortest path” starting from Parque de la Memoria (large orange dot) in the north to various destinations in the south and east (yellow dots).\nThe current routing (dashed black lines) show that a cyclist can’t get to the south without exiting the network; meanwhile the routing using the suggested red bike lane shows a new route (orange dashed lines).\n\nWhile the network is extensive, it is not yet equitable. Closing the gaps in the south would not only improve safety but also strengthen intermodal links (like at Sáenz Station) and guarantee that active mobility is a viable option for all residents, regardless of where they live."
   },
   {
-    "objectID": "projects_en/P12_en.html#data-sources-and-tools",
-    "href": "projects_en/P12_en.html#data-sources-and-tools",
-    "title": "Night lights, railways and settlements",
+    "objectID": "projects_en/P11_en.html#data-sources-and-tools",
+    "href": "projects_en/P11_en.html#data-sources-and-tools",
+    "title": "Bike lanes in Buenos Aires City",
     "section": "Data Sources and Tools",
-    "text": "Data Sources and Tools\n\nNOAA’s VIIRS Nighttime Day/Night Annual Band Composites V2.2 with Google Earth Engine\nSettlements: Argentine Settlements Database (BAHRA)\nRailroads: OpenStreetMap, using QuickOSM plugin in QGIS\n\n\n\nMade with GIS 3.22.4-Białowieża"
+    "text": "Data Sources and Tools\n\nBike lanes and EcoBici stations: IDECABA\nBasemap: Argenmap by National Geography Institute of Argentina\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
-    "objectID": "projects_en/P12_en.html#google-earth-engine-code",
-    "href": "projects_en/P12_en.html#google-earth-engine-code",
-    "title": "Night lights, railways and settlements",
-    "section": "Google Earth Engine code",
-    "text": "Google Earth Engine code\n\n\nClick to view\n\n\n\nGEE Script Day 15-Fire\n\n// 1. Load  ROI to map from assets\nMap.addLayer(roi);\nMap.centerObject(roi);\n\n// 2. Define date range\nvar date = ee.DateRange('2024-01-01', '2025-12-31');\n\n// 3. Import dataset and process\nvar dataset = ee.ImageCollection('NOAA/VIIRS/DNB/ANNUAL_V22')\n                  .filter(ee.Filter.date(date))\n                  .filterBounds(roi);\n                  \nvar nighttime = dataset.select('average_masked');\nvar nighttime_image = nighttime.median().clip(poi);\n\n// 4. Set visualization parameters\nvar nighttimeVis = {min: 0.0, max: 60.0};\nMap.addLayer(nighttime_image, nighttimeVis, 'Nighttime');\n\n// 5. Raster was exported to produce the map\nExport.image.toDrive({\n  image: nighttime_image.select('average_masked'),\n  description: 'Nighttime',\n  folder: 'Nighttime_exports',\n  region: roi.geometry(),\n  scale: 100,\n  maxPixels: 1e13\n});"
+    "objectID": "projects_en/P11_en.html#interactive-map",
+    "href": "projects_en/P11_en.html#interactive-map",
+    "title": "Bike lanes in Buenos Aires City",
+    "section": "Interactive map",
+    "text": "Interactive map\n\n\nClick to view code\nlibrary(sf)\nlibrary(leaflet)\nlibrary(dplyr)\n\nsf_use_s2(FALSE)\nfolder_path &lt;- \"../vectors\" #all single features, in EPSG: 4326 and geometries checked\n\nload_layer &lt;- function(filename) {\n  full_path &lt;- file.path(folder_path, filename)\n  if (file.exists(full_path)) {\n    return(st_read(full_path, quiet = TRUE) %&gt;% st_zm())\n  }\n  return(NULL)\n}\n\nmerged_lines &lt;- load_layer(\"merged_single.geojson\")\necobici      &lt;- load_layer(\"ecobici.geojson\")\npuntos_ruteo &lt;- load_layer(\"ptruteo.geojson\")\n\nif (!is.null(ecobici)) ecobici &lt;- st_cast(ecobici, \"POINT\")\nif (!is.null(puntos_ruteo)) puntos_ruteo &lt;- st_cast(puntos_ruteo, \"POINT\")\n\npal &lt;- list(\n  \"Bike lane\"            = \"#1b9e77\",\n  \"One-way bike lane\"    = \"#7570b3\",\n  \"Suggested bike lanes\" = \"red\",\n  \"Suggested routing\"    = \"#d95f02\", \n  \"Current routing\"      = \"black\",\n  \"Start Point\"          = \"darkorange\", \n  \"End Point\"            = \"#faff39\",    \n  \"EcoBici\"              = \"#fd7da3\"     \n)\n\ntoggle_mapping &lt;- list(\n  \"Starting routing point\" = \"Routing Layers\",\n  \"Routing end points\"     = \"Routing Layers\",\n  \"Current routing\"        = \"Routing Layers\",\n  \"Suggested routing\"      = \"Routing Layers\",\n  \"EcoBici Stations\"       = \"Infrastructure\",\n  \"Bike lane\"              = \"Infrastructure\",\n  \"One-way bike lane\"      = \"Infrastructure\",\n  \"Suggested bike lanes\"   = \"Infrastructure\"\n)\n\nif (!is.null(merged_lines)) {\n  lines_split &lt;- split(merged_lines, merged_lines$gna)\n} else {\n  lines_split &lt;- list()\n}\n\nif (!is.null(puntos_ruteo)) {\n  parque_points &lt;- filter(puntos_ruteo, nam == \"Parque de la Memoria\")\n  other_stops   &lt;- filter(puntos_ruteo, nam != \"Parque de la Memoria\")\n} else {\n  parque_points &lt;- NULL; other_stops &lt;- NULL\n}\n\ndesired_order &lt;- c(\n  \"Starting routing point\",  \n  \"Routing end points\",\n  \"Current routing\",         # Dashed\n  \"Suggested routing\",       # Dashed\n  \"EcoBici Stations\",\n  \"Bike lane\",\n  \"One-way bike lane\",\n  \"Suggested bike lanes\"     \n)\n\nmap &lt;- leaflet() %&gt;%\n  setView(lng = -58.46, lat = -34.60, zoom = 12) %&gt;%\n  addTiles(\n    urlTemplate = \"https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png\",\n    attribution = \"Argenmap - IGN Argentina\",\n    options = tileOptions(tms = FALSE), \n    group = \"Argenmap\"\n  ) %&gt;%\n  addProviderTiles(providers$CartoDB.DarkMatter, group = \"Carto Dark Matter\")\n\nfor (group_name in rev(desired_order)) {\n  my_toggle_group &lt;- toggle_mapping[[group_name]]\n  \n  if (group_name %in% names(lines_split)) {\n    layer_data &lt;- lines_split[[group_name]]\n    col &lt;- ifelse(group_name %in% names(pal), pal[group_name], \"#555555\")\n    my_dash &lt;- if(group_name %in% c(\"Current routing\", \"Suggested routing\")) \"5, 7\" else NULL\n    \n    map &lt;- map %&gt;%\n      addPolylines(\n        data = layer_data, color = col, weight = 2, opacity = 1,\n        dashArray = my_dash, group = my_toggle_group,\n        popup = ~gna\n      )\n\n  } else if (group_name == \"Starting routing point\" && !is.null(parque_points)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = parque_points, radius = 6, fillColor = \"darkorange\", fillOpacity = 1,\n      stroke = TRUE, color = \"tomato\", weight = 2,\n      group = my_toggle_group, popup = ~nam\n    )\n    \n  } else if (group_name == \"Routing end points\" && !is.null(other_stops)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = other_stops, radius = 4, fillColor = \"#faff39\", fillOpacity = 0.8,\n      stroke = TRUE, color = \"#e6bc26\", weight = 1.5,\n      group = my_toggle_group, popup = ~nam\n    )\n    \n  } else if (group_name == \"EcoBici Stations\" && !is.null(ecobici)) {\n    map &lt;- map %&gt;% addCircleMarkers(\n      data = ecobici, radius = 2, fillColor = \"#ba0e64\", fillOpacity = 0.7,\n      stroke = TRUE, color = \"lightpink\", weight = 0.7,\n      group = my_toggle_group, popup = ~nam\n    )\n  }\n}\n\nmap &lt;- map %&gt;%\n  addLegend(\n    position = \"bottomleft\",\n    colors = c(\n      pal[[\"Current routing\"]], \n      pal[[\"Suggested routing\"]],\n      pal[[\"Bike lane\"]], \n      pal[[\"One-way bike lane\"]],\n      pal[[\"Suggested bike lanes\"]],\n      pal[[\"Start Point\"]],\n      pal[[\"End Point\"]],\n      pal[[\"EcoBici\"]]\n    ),\n    labels = c(\n      \"Current Routing (Dashed)\", \n      \"Suggested Routing (Dashed)\",\n      \"Bike Lane\", \n      \"One-way Lane\", \n      \"Suggested Lane\",\n      \"Start Point\",\n      \"End Points\",\n      \"EcoBici Station\"\n    ),\n    opacity = 1,\n    title = \"References\"\n  )\n\n\nmap %&gt;%\n  addLayersControl(\n    baseGroups = c(\"Argenmap\", \"Carto Dark Matter\"),\n    overlayGroups = c(\"Routing Layers\", \"Infrastructure\"), \n    options = layersControlOptions(collapsed = FALSE)\n  )"
   },
   {
-    "objectID": "projects_en/P12_en.html#the-final-map-for-day-28",
-    "href": "projects_en/P12_en.html#the-final-map-for-day-28",
-    "title": "Night lights, railways and settlements",
-    "section": "The final map for Day 28",
-    "text": "The final map for Day 28"
+    "objectID": "projects_en/P11_en.html#the-final-maps-for-day-26",
+    "href": "projects_en/P11_en.html#the-final-maps-for-day-26",
+    "title": "Bike lanes in Buenos Aires City",
+    "section": "The final maps for Day 26",
+    "text": "The final maps for Day 26"
   },
   {
     "objectID": "projects_en/P01_en.html#project-overview",
@@ -235,7 +249,7 @@
     "href": "projects_en/P01_en.html#workflow",
     "title": "Quality of Life Index",
     "section": "Workflow",
-    "text": "Workflow\n\nCalculations\nThe methodology followed the one proposed by ACUMAR [1] where:\n\nQLI (Quality of Life Index) = 0.25 * HI + 0.25 * PHI + 0.25 EdI + 0.25 * EnI\n\n\nHI: housing index\nPHI: public health index\nEdI: education index\nEnI: environmental index\n\nBecause of the information available at the time, we were able to calculate both HI and PHI sub-indeces. When comparing with ACUMAR’s data from Matanza-Riachuelo basin, we only compared to those two, and using the same scale for visualization as the one proposed by ACUMAR.\n\n\nProcess\n\nThe fundamental spatial unit used was the “radio censal” (census radius), which is the smallest unit of geography used by INDEC for census reporting. All datasets with a coarser resolution were transformed to match this base layer, ensuring the analysis utilized the highest resolution available.\nAlthough operations were performed for all census radii of all comprising departments of the Basin, for visualization purposes only those within the Basin were shown. This happens because a basin is defined by physical characteristics unlike political boundaries.\n\n\n\n\n\n\n---\nconfig:\n  theme: base\n  flowchart:\n    padding: 5\n---\nflowchart TD\n    C(Basin Boundary) --&gt;|Crop| B(Mask) --&gt; Y\n    A(Water courses) --&gt;|Crop| Y\n    D(Census radii) --&gt; |Selection of housing variables| E(Housing Index raw data) --&gt; |Operations| F(Housing Index) --&gt; Y\n    G(Public health establishments) --&gt; |Buffer, dissolve| H(Health Index)\n    I(Static waste disposal map) --&gt; |Digitalization from satellite images| J(Waste disposal locations) --&gt; |Buffer and scoring by distance| H --&gt; Y\n    K(Political boundaries) --&gt; Y([Join]) --&gt; |Visualization| Z(Final cartographic product)\nlinkStyle default stroke:#40A355, stroke-width:2px;\nclassDef default stroke:#40A355,stroke-width:2px;"
+    "text": "Workflow\n\nCalculations\nThe methodology followed the one proposed by ACUMAR [1] where:\n\nQLI (Quality of Life Index) = 0.25 * HI + 0.25 * PHI + 0.25 EdI + 0.25 * EnI\n\n\nHI: housing index\nPHI: public health index\nEdI: education index\nEnI: environmental index\n\nBecause of the information available at the time, we were able to calculate both HI and PHI sub-indeces. When comparing with ACUMAR’s data from Matanza-Riachuelo basin, we only compared to those two, and using the same scale for visualization as the one proposed by ACUMAR.\n\n\nProcess\n\nThe fundamental spatial unit used was the “radio censal” (census radius), which is the smallest unit of geography used by INDEC for census reporting. All datasets with a coarser resolution were transformed to match this base layer, ensuring the analysis utilized the highest resolution available.\nAlthough operations were performed for all census radii of all comprising departments of the Basin, for visualization purposes only those within the Basin were shown. This happens because a basin is defined by physical characteristics unlike political boundaries.\n\n\n\n\n\n\n---\nconfig:\n  theme: base\n  flowchart:\n    padding: 5\n---\nflowchart TD\n    C(Basin Boundary) --&gt;|Clip| B(Mask) --&gt; Y\n    A(Water courses) --&gt;|Clip| Y\n    D(Census radii) --&gt; |Selection of housing variables| E(Housing Index raw data) --&gt; |Operations| F(Housing Index) --&gt; Y\n    G(Public health establishments) --&gt; |Buffer, dissolve| H(Health Index)\n    I(Static waste disposal map) --&gt; |Digitalization from satellite images| J(Waste disposal locations) --&gt; |Buffer and scoring by distance| H --&gt; Y\n    K(Political boundaries) --&gt; Y([Join]) --&gt; |Visualization| Z(Final cartographic product)\nlinkStyle default stroke:#40A355, stroke-width:2px;\nclassDef default stroke:#40A355,stroke-width:2px;"
   },
   {
     "objectID": "projects_en/P01_en.html#key-findings-analysis",
@@ -298,7 +312,7 @@
     "href": "projects_en/P10_en.html#interactive-map",
     "title": "Street names of Pergamino",
     "section": "Interactive map",
-    "text": "Interactive map\n\n\nClick to view the code\nlibrary(sf)\nlibrary(leaflet)\n\n# 1. LOAD & CLEAN DATA\nsf_use_s2(FALSE)\nstreets &lt;- st_read(\"../shapefiles/red_vial.geojson\" , quiet = TRUE)\nstreets &lt;- st_zm(streets) \n\n# 2. PREPARE COLORS AND CATEGORIES\nlabels_map &lt;- c(\n  \"Fecha\" = \"Commemorated Dates\",\n  \"L\"     = \"Geographic Places\",\n  \"H\"     = \"Male Names\",\n  \"M\"     = \"Female Names\",\n  \"O\"     = \"Unclassified / Other\",\n  \"N\"     = \"Nature (Plants/Animals)\"\n)\n\nstreets$CATE &lt;- ifelse(streets$CATE %in% names(labels_map), labels_map[streets$CATE], \"Unclassified / Other\")\nstreets$CATE[is.na(streets$CATE)] &lt;- \"Unclassified / Other\"\n\ncate_palette &lt;- c(\n  \"Commemorated Dates\"      = \"#f2eb19\",\n  \"Geographic Places\"       = \"#6e4eed\",\n  \"Male Names\"              = \"#3badde\",\n  \"Female Names\"            = \"#f762e3\",\n  \"Nature (Plants/Animals)\" = \"#4cc630\",\n  \"Unclassified / Other\"    = \"#dc6f35\"\n)\n\nstreets$CATE &lt;- factor(streets$CATE, levels = names(cate_palette))\npal_cate &lt;- colorFactor(palette = cate_palette, domain = streets$CATE)\n\n# 3. RENDER MAP\nleaflet(streets) %&gt;%\n  setView(lng = -60.57, lat = -33.89, zoom = 13) %&gt;%\n  addTiles(\n    urlTemplate = \"https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png\",\n    attribution = \"Argenmap - IGN Argentina\",\n    options = tileOptions(tms = FALSE)\n  ) %&gt;%\n  addPolylines(\n    color = ~pal_cate(CATE),\n    weight = 2,\n    opacity = 0.7,\n    popup = ~paste(\n      \"&lt;b&gt;Street Name:&lt;/b&gt;\", nombre, \"&lt;br&gt;\",\n      \"&lt;b&gt;Category:&lt;/b&gt;\", CATE\n    ),\n    highlightOptions = highlightOptions(\n      weight = 7, color = \"white\", bringToFront = TRUE\n    )\n  ) %&gt;%\n  addLegend(\n    position = \"bottomright\",\n    pal = pal_cate,\n    values = ~CATE,\n    title = \"Legend\"\n  )"
+    "text": "Interactive map\n\n\nClick to view the code\nlibrary(sf)\nlibrary(leaflet)\n\n# 1. LOAD & CLEAN DATA\nsf_use_s2(FALSE)\nstreets &lt;- st_read(\"../vectors/red_vial.geojson\" , quiet = TRUE)\nstreets &lt;- st_zm(streets) \n\n# 2. PREPARE COLORS AND CATEGORIES\nlabels_map &lt;- c(\n  \"Fecha\" = \"Commemorated Dates\",\n  \"L\"     = \"Geographic Places\",\n  \"H\"     = \"Male Names\",\n  \"M\"     = \"Female Names\",\n  \"O\"     = \"Unclassified / Other\",\n  \"N\"     = \"Nature (Plants/Animals)\"\n)\n\nstreets$CATE &lt;- ifelse(streets$CATE %in% names(labels_map), labels_map[streets$CATE], \"Unclassified / Other\")\nstreets$CATE[is.na(streets$CATE)] &lt;- \"Unclassified / Other\"\n\ncate_palette &lt;- c(\n  \"Commemorated Dates\"      = \"#f2eb19\",\n  \"Geographic Places\"       = \"#6e4eed\",\n  \"Male Names\"              = \"#3badde\",\n  \"Female Names\"            = \"#f762e3\",\n  \"Nature (Plants/Animals)\" = \"#4cc630\",\n  \"Unclassified / Other\"    = \"#dc6f35\"\n)\n\nstreets$CATE &lt;- factor(streets$CATE, levels = names(cate_palette))\npal_cate &lt;- colorFactor(palette = cate_palette, domain = streets$CATE)\n\n# 3. RENDER MAP\nleaflet(streets) %&gt;%\n  setView(lng = -60.56, lat = -33.895, zoom = 13) %&gt;%\n  addTiles(\n    urlTemplate = \"https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{-y}.png\",\n    attribution = \"Argenmap - IGN Argentina\",\n    options = tileOptions(tms = FALSE)\n  ) %&gt;%\n  addPolylines(\n    color = ~pal_cate(CATE),\n    weight = 2,\n    opacity = 0.7,\n    popup = ~paste(\n      \"&lt;b&gt;Street Name:&lt;/b&gt;\", nombre, \"&lt;br&gt;\",\n      \"&lt;b&gt;Category:&lt;/b&gt;\", CATE\n    ),\n    highlightOptions = highlightOptions(\n      weight = 7, color = \"white\", bringToFront = TRUE\n    )\n  ) %&gt;%\n  addLegend(\n    position = \"bottomright\",\n    pal = pal_cate,\n    values = ~CATE,\n    title = \"Legend\"\n  )"
   },
   {
     "objectID": "projects_en/P10_en.html#the-final-map-for-day-24",
@@ -310,21 +324,21 @@
   {
     "objectID": "projects_en/P04_en.html#project-overview",
     "href": "projects_en/P04_en.html#project-overview",
-    "title": "My tour around Buenos Aires City",
+    "title": "My bike tour around Buenos Aires City",
     "section": "Project Overview",
     "text": "Project Overview\n\n\nThe annual event “Vuelta en Bici a la Ciudad de Buenos Aires” consists of a mass tour of the city, departing counterclockwise from Parque Lezama. The ride is about 70 km long and takes between 10 to 12 hours to complete, with two fixed intermediate stops.\nI used public transport to get to the starting point and to return, and I wanted to show that on this map as well. The symbols were chosen with accessibility in mind, ensuring the visualization does not rely solely on color.\n\n\n\n\nDrone picture of bikers touring  Buenos Aires City, August 2023"
   },
   {
     "objectID": "projects_en/P04_en.html#data-sources-and-tools",
     "href": "projects_en/P04_en.html#data-sources-and-tools",
-    "title": "My tour around Buenos Aires City",
+    "title": "My bike tour around Buenos Aires City",
     "section": "Data Sources and Tools",
     "text": "Data Sources and Tools\n\nMy GPS Data retrieved with Google Maps and recovered using Timeline Viewer Map\nBasemap: Argenmap by National Geography Institute of Argentina\n\n\n\nMade with GIS 3.22.4-Białowieża"
   },
   {
     "objectID": "projects_en/P04_en.html#the-final-map-for-day-4",
     "href": "projects_en/P04_en.html#the-final-map-for-day-4",
-    "title": "My tour around Buenos Aires City",
+    "title": "My bike tour around Buenos Aires City",
     "section": "The final map for Day 4",
     "text": "The final map for Day 4"
   },

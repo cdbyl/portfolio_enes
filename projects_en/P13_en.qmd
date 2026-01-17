@@ -1,0 +1,56 @@
+---
+title: "DDBB management and cartography for Environmental Impact Assessments"
+description: "Description of my role as GIS Analyst at a multinational environmental consultancy firm."
+date: "2025-04-30"
+lang: en
+categories: [Consulting, Remote Sensing, Interactive map]
+image: ../images/P13_cover.jpg
+format:
+  html:
+    code-fold: true 
+---
+****
+## Main tasks
+
+:::: {.columns}
+
+::: {.column width="40%" .text-center}
+![_Physical delivery of an Environmental Impact Assessment (NDA covered)._](../images/P13_cover.jpg){width=85%}
+
+:::
+
+::: {.column width="60%" .text-justify}
+* <u>Database Management</u>: I maintained rigorous spatial databases to track environmental monitoring data across multi-year project lifecycles.
+* <u>High-Volume Cartography</u>: I developed standardized workflows to generate 'batch' map series. This ensured that hundreds of deliverables maintained a consistent, high-quality aesthetic compliant with strict corporate and regulatory standards for EIAs. 
+
+
+:::
+
+
+::::
+::: {.text-justify}
+* <u>Interdisciplinary collaboration</u>: Acted as a technical bridge between diverse specialist teams (geology, biology, sociology, hydrology) and project management, translating complex spatial data into clear, decision-ready visuals.
+
+:::
+
+## Tools
+
+* ArcGIS Pro (Esri): utilized Jupyter Notebooks for automated cartography production.
+* ArcGIS Desktop (Esri): managed legacy cartography and workflows.
+* Geodatabase Management: ensured data integrity.
+* ArcGIS Online SaaS: deployed FieldMaps, Survey123, and ExperienceBuilder for field data collection by internal team and monitoring by clients.
+* Microsoft Azure: managed servers to host and serve ArcGIS Online web apps.
+* Microsoft Office: developed a SharePoint automation app to streamline incoming mapping requests.
+* Google Earth Engine: conducted climate and vegetation analysis on a regional scale.
+* QGIS: utilized for georeferencing and interoperability checks.
+
+
+
+
+
+
+
+
+
+
+

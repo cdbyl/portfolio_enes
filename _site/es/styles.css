@@ -80,7 +80,4 @@ div.sourceCode, pre.sourceCode, code.sourceCode {
   background-color: transparent !important;
 }
 
-/* Optional: If you also want to remove the border */
-div.sourceCode {
-  border: none !important;
-}
+
